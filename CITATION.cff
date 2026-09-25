@@ -1,0 +1,71 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper and this archive."
+type: software
+title: "Code and data for: Partners, rivals, and friendly rivals in the evolution of direct reciprocity"
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/martin-mn/PRFR"
+authors:
+  - family-names: Nowak
+    given-names: Martin A.
+    affiliation: Harvard University
+abstract: >-
+  Code and data to reproduce every figure and table of the paper and its
+  Supplementary Information. The repository has five parts: the exact census,
+  in the limit of rare errors, of all 65536 binary memory-two strategies at
+  every symmetric two-player game, in double precision and in exact rational
+  arithmetic; the family descriptions of the friendly rivals; the Wright-Fisher
+  simulator as it ran on the cluster, with the seed of every replicate; the
+  reduced output of the census and of the simulations; and, in notes/, the
+  notes on individual strategies and cycles to which the Supplementary
+  Information refers, with scripts that recompute their numbers. Each display
+  item has a folder with the script that redraws or recomputes it from the
+  deposited data.
+keywords:
+  - evolution of cooperation
+  - direct reciprocity
+  - repeated games
+  - Nash equilibrium
+  - partners
+  - rivals
+  - friendly rivals
+  - memory-two strategies
+references:
+  - type: article
+    title: "Partners, rivals, and friendly rivals in the evolution of direct reciprocity"
+    authors:
+      - family-names: Nowak
+        given-names: Martin A.
+        affiliation: Harvard University
+    year: 2026
+    notes: "The paper this archive accompanies."
+  - type: article
+    title: "An exhaustive map of binary memory-two direct reciprocity over symmetric two-player games"
+    authors:
+      - family-names: Nowak
+        given-names: Martin A.
+    year: 2026
+    status: preprint
+    journal: bioRxiv
+    doi: 10.64898/2026.09.05.749606
+    notes: "Companion paper: the exact arrangement of the stability regions of the memory-two strategies."
+  - type: article
+    title: "Simple evolution drives direct reciprocity to maximum payoff in social dilemmas"
+    authors:
+      - family-names: Nowak
+        given-names: Martin A.
+    year: 2026
+    status: preprint
+    url: "https://arxiv.org/abs/2608.06147"
+    identifiers:
+      - type: other
+        value: "arXiv:2608.06147"
+        description: arXiv identifier
+  - type: software
+    title: MapBinM2
+    authors:
+      - family-names: Nowak
+        given-names: Martin A.
+    repository-code: "https://github.com/martin-mn/MapBinM2"
+    license: MIT
+    notes: "Code of the companion map, from which the polygons of the memory-two stability regions in data/arrangement/ are re-encoded."

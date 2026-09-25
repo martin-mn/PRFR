@@ -1,0 +1,16 @@
+# SI Table 5, recomputed by SITable5/sitable5.py from the arrangement in data/arrangement/ (m2_faces.csv).
+# wedge: W (u+v<1, u-v<1), S (u+v<1, u-v>1), E (u+v>1, u-v>1), N (u+v>1, u-v<1); quadrant: PD (u<0<v),
+# SH (u,v<0), SD (u,v>0), HA (v<0<u).  atom_xyz: whether the atom xyz (efficient-stable-competitive) has members
+# on all, part or none of the faces of the piece.  faces: the number of polygons of data/arrangement/m2_faces.csv in the piece
+# (the drawing's 27598 polygons, bands of the 22872 faces; see data/arrangement/README.md).
+wedge,quadrant,atom_100,atom_010,atom_011,atom_110,faces
+W,PD,all,part,all,part,8786
+W,SH,none,all,all,all,3614
+W,SD,all,all,all,all,663
+W,HA,none,all,part,all,483
+S,SH,none,all,none,all,1244
+S,HA,part,part,none,part,3450
+E,SD,all,none,none,all,557
+E,HA,all,part,all,part,6059
+N,PD,all,part,all,part,1949
+N,SD,all,part,none,all,793

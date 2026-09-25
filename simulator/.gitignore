@@ -1,0 +1,20 @@
+# copies that kits/stage.sh puts into the kit directories (the originals are in src/, games/, atoms/)
+kits/*/payf2.f
+kits/*/payf3.f
+kits/*/mt.f
+kits/*/mtb.f
+kits/*/games.dat
+kits/atoms512.bin
+# what compile.sh, submit.sh, the runs, pack.py and the generators' test mode write
+kits/*/sf_*.f
+kits/*/*.x
+kits/*/run*/
+kits/*/log/
+kits/*/packed/
+kits/*/JOBID_*
+kits/*/IDX_*
+kits/mkkits_test_*/
+# local/smoke.sh
+local/work/
+# kits/README.md, "The job ledger": the originals kept by the optional sed
+kits/*/submit.sh.orig

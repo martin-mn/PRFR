@@ -1,0 +1,44 @@
+{
+  "upload_type": "software",
+  "title": "Code and data for: Partners, rivals, and friendly rivals in the evolution of direct reciprocity",
+  "version": "1.0.0",
+  "creators": [
+    {
+      "name": "Nowak, Martin A.",
+      "affiliation": "Harvard University"
+    }
+  ],
+  "license": "mit",
+  "access_right": "open",
+  "description": "<p>Code and data to reproduce every figure and table of the paper <em>Partners, rivals, and friendly rivals in the evolution of direct reciprocity</em> and its Supplementary Information.</p><p>A strategy of a repeated game is efficient if a population using it earns the largest average payoff any pair of players can attain, stable if it is a symmetric Nash equilibrium against a single deviant, and competitive if no co-player earns more than it does. The paper classifies all 16 binary memory-one and all 65536 binary memory-two strategies by these three properties at every symmetric two-player game, in the limit of rare errors. It then follows their evolution at 512 sampled games with a Wright-Fisher process with pairwise comparison.</p><p>The archive contains the following:</p><ul><li>the exact census of the 65536 memory-two strategies, in C, in double precision and in exact rational arithmetic, with its check program;</li><li>the family descriptions of the friendly rivals;</li><li>the Fortran Wright-Fisher simulator in every version that ran on the cluster, with the seed of every replicate;</li><li>the reduced output of the census and of the simulations;</li><li>one folder per display item, with the Python script that redraws or recomputes it from the deposited data;</li><li>the notes on individual strategies and cycles to which the Supplementary Information refers, with the scripts that recompute their numbers.</li></ul><p>The per-strategy abundance histograms of the memory-two runs are not included. They are regenerated bit for bit from the seeds, and simulator/CHECKSUMS.sha256 gives the sha256 of every packed output file to check a regeneration against.</p>",
+  "keywords": [
+    "evolution of cooperation",
+    "direct reciprocity",
+    "repeated games",
+    "Nash equilibrium",
+    "partners",
+    "rivals",
+    "friendly rivals",
+    "memory-two strategies"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.64898/2026.09.05.749606",
+      "relation": "references",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "arXiv:2608.06147",
+      "relation": "references",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "identifier": "https://github.com/martin-mn/MapBinM2",
+      "relation": "references",
+      "resource_type": "software",
+      "scheme": "url"
+    }
+  ]
+}

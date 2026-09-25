@@ -1,0 +1,24 @@
+# SI Table 8: the sixteen binary memory-one strategies, computed by sitable8.py (exact, eps -> 0).
+# genome: the answers at CC, CD, DC, DD (own action first); id: sum of 2^k over the k with answer C.
+# efficient: where the strategy is efficient, off the two lines (u+v<1: self-play all CC).
+# nash: the closed set of games at which it is stable, a Nash equilibrium with ties admitted, '&' = and, '--' = none.
+# rival_for: the sign of T-S for which it is competitive against every co-player.
+# class: partner / friendly rival (with where) / rival / none; ';' separates the parts.
+# Games (R,S,T,P) = (1,u,1+v,0).
+genome,id,name,efficient,nash,rival_for,class
+CCCC,15,ALLC,u+v<1,v<=0,T<S,partner on v<=0 & u+v<1; friendly rival on S
+CCCD,7,,u+v<1,v<=0,T<S,partner on v<=0 & u+v<1; friendly rival on S
+CDDC,9,WSLS,u+v<1,u<=1 & v<=1,--,partner on u<=1 & v<=1 & u+v<1
+CDCD,5,TFT,--,--,both,rival (fair)
+CDDD,1,Grim,--,u<=-1/2,T>S,rival
+DDDD,0,ALLD,--,u<=0,T>S,rival
+DDCD,4,,--,u+v=-1 & u<=-1,T>S,rival
+CDCC,13,,--,u+v=1 & u>=0,T<S,rival
+DDDC,8,,--,u<=1/2 & v<=0,--,none
+DCCC,14,,--,u<=0 & v<=-1/2,--,none
+DCCD,6,,--,u<=-1 & v<=-1,--,none
+DCDD,2,,--,v=3u-1 & u>=0,--,none
+DDCC,12,,--,u=0 & v=0,--,none
+DCDC,10,,--,u=1/2 & v=-1/2,--,none
+CCDD,3,,--,u=0 & v=0,--,none
+CCDC,11,,--,u=3v+1 & v>=0,--,none

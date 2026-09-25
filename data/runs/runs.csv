@@ -1,0 +1,27 @@
+# The four main Wright-Fisher runs (Methods, 'The Wright-Fisher process with pairwise comparison'): one row per run.
+# Every run: the 512 games of data/games, uniform mutants over the whole space (the current strategy included),
+# eps = 1e-4, 10 independent replicates per game from independent uniform initial populations, the second half
+# of each replicate sampled (every individual in every generation).
+# 
+# Columns:
+#   name         the run; its per-game table is <name>.csv
+#   space        m1: the 16 binary memory-one strategies (run as memory-two strategies that ignore the round
+#                before); m2: the 65536 binary memory-two strategies
+#   nstrat       the size of the space
+#   N, beta, mu, eps   population size, selection intensity, mutation rate, error rate
+#   generations  generations per replicate
+#   replicates   replicates per game
+#   kit, source  the Cannon kit in this repository (simulator/kits/) and the Fortran source of the run
+#   jobid        the Slurm array job id of the production array on Harvard's Cannon cluster
+#   seed_base    s0: replicate r = 1..10 of task isl ran on the seed s0 + 10 (isl - 1) + r
+#   isl0         the task index of game ipt is isl = isl0 + 3 ipt (column isl of the per-game tables)
+#   figures      the display items drawn from the run
+# The two memory-two runs were regenerated bit for bit from these seeds on 2026-09-22 (kits f1, f2, jobs
+# 47837723 and 47837725): every summary, w- and h-file of the 512 games was byte-identical to the original.
+# m2_N1000: five of its games (the probe cells, ipt 0 and 508-511) ran, on the same seeds, in the probe array
+# 44383754, and the production array skipped them.
+name,space,nstrat,N,beta,mu,eps,generations,replicates,kit,source,jobid,seed_base,isl0,figures
+m1_N100,m1,16,100,3,0.0001,0.0001,100000000,10,simulator/kits/mw,sf2.f,46984101,11000000,3,SIFig2a-h SIFig4a-c SIFig5a-c
+m1_N1000,m1,16,1000,100,0.01,0.0001,10000000,10,simulator/kits/mw,sf1.f,46984100,10000000,3,Fig4a-c Fig5a-c SIFig2i-p
+m2_N100,m2,65536,100,3,0.0001,0.0001,100000000,10,simulator/kits/dw2,sf.f,45049704,9000000,1368,SIFig3a-h SIFig4d-f SIFig5d-f
+m2_N1000,m2,65536,1000,100,0.01,0.0001,10000000,10,simulator/kits/dw1,sf.f,44394541,8000000,1368,Fig4d-f Fig5d-f SIFig3i-p

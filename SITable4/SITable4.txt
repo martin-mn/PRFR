@@ -1,0 +1,38 @@
+SI Table 4: the families of friendly rivals (recomputed by SITable4/sitable4.py)
+
+a  wedge W  family 1 (8)  111*000101*1*010
+       most recent | the round before: CC CD DC DD
+       CC          |                   C  C  C  *
+       CD          |                   D  D  D  C
+       DC          |                   D  C  *  C
+       DD          |                   *  D  C  D
+
+b  wedge N  family 1 (32)  *10*0000*1*1*010
+       most recent | the round before: CC CD DC DD
+       CC          |                   *  C  D  *
+       CD          |                   D  D  D  D
+       DC          |                   *  C  *  C
+       DD          |                   *  D  C  D
+
+b  wedge N  family 2 (32)  *01*0000*1*1*010
+       most recent | the round before: CC CD DC DD
+       CC          |                   *  D  C  *
+       CD          |                   D  D  D  D
+       DC          |                   *  C  *  C
+       DD          |                   *  D  C  D
+
+b  wedge N  family 3 (16)  *10*000*11*10010
+       most recent | the round before: CC CD DC DD
+       CC          |                   *  C  D  *
+       CD          |                   D  D  D  *
+       DC          |                   C  C  *  C
+       DD          |                   D  D  C  D
+
+b  wedge N  family 4 (16)  *01*000*11*10010
+       most recent | the round before: CC CD DC DD
+       CC          |                   *  D  C  *
+       CD          |                   D  D  D  *
+       DC          |                   C  C  *  C
+       DD          |                   D  D  C  D
+
+E  the mirror images of the families of N: 101*0*0*1111*10*, 101*0*0*1111*01*, 10110*00*111*10*, 10110*00*111*01*

@@ -1,0 +1,35 @@
+# runs.csv -- the fifteen memory-two Wright-Fisher runs whose reduced output is in this folder, one row per run
+# (written by provenance/robustness/reduce.py).  Every run: the 65536 binary memory-two strategies on the 512 sampled
+# games (data/games), the Wright-Fisher process with pairwise comparison of the Methods, 10 independent replicates per
+# game, the second half of each replicate sampled.
+# Columns:
+#   run            the name of the packed output and of the tables games_<run>.csv and replicates_<run>.csv
+#   kit            the simulator kit that produced it (the Cannon kits of the project)
+#   N              population size
+#   beta           selection strength of the pairwise comparison
+#   mu             mutation rate per individual and generation
+#   eps            error rate: the probability that an intended move is flipped
+#   nu             mutation kernel: the probability that a mutant is drawn uniformly from all 65536 strategies (its own
+#                  included); otherwise one of the 16 positions of its own strategy is flipped. nu = 1: the uniform kernel
+#   generations    generations per replicate (the second half is sampled)
+#   seed_base      the seed of replicate rep of task isl is seed_base + (isl - 1)*10 + rep (column seed of replicates_<run>.csv)
+#   ie             offset of the slurm array: isl = 3*(ig - 1) + ie with ig = 456 + ipt (column isl of games_<run>.csv)
+#   jobid          the Slurm array job ID of the production array on the Harvard Cannon cluster
+#   per_replicate  1 if the run wrote per-replicate atom shares (a .rep file; the kits of 2026-09-22 and later), else 0
+#   role           where the run appears in the paper (a/b/c: the same disk in the three groups of SI Figure 8)
+run,kit,N,beta,mu,eps,nu,generations,seed_base,ie,jobid,per_replicate,role
+f1_e4,f1,1000,100,1e-2,1e-4,1,1e7,8000000,3,47837723,1,main text Figure 4d-f; SI Figures 8 h/p/x and 9 d-f and 11 d-f and 12 j-l; SI Tables 6 and 7: DiskM2WF run dw1 (job 44394541) regenerated with its own seeds - byte-identical to dw1 at all 512 games - plus the per-replicate output
+f2_e4,f2,100,3,1e-4,1e-4,1,1e8,9000000,3,47837725,1,SI Figure 4d-f; SI Figures 8 a/i/q and 10 d-f and 11 a-c; SI Tables 6 and 7: DiskM2WF run dw2 (job 45049704) regenerated with its own seeds - byte-identical to dw2 - plus the per-replicate output
+c2_e4,c2,100,3,1e-2,1e-4,1,1e7,23000000,3,47721339,1,SI Figure 8 b/j/r; SI Table 7a row 2
+c4_e4,c4,1000,3,1e-4,1e-4,1,1e7,25000000,3,47734216,1,SI Figure 8 c/k/s; SI Table 7a row 3
+dw4_e4,dw4,1000,3,1e-2,1e-4,1,1e7,11000000,3,46108584,0,SI Figure 8 d/l/t; SI Table 7a row 4
+c3_e4,c3,100,100,1e-4,1e-4,1,1e8,24000000,3,47735495,1,SI Figure 8 e/m/u; SI Table 7a row 5
+c1_e4,c1,100,100,1e-2,1e-4,1,1e7,22000000,3,47721337,1,SI Figure 8 f/n/v; SI Table 7a row 6
+dw3_e4,dw3,1000,100,1e-4,1e-4,1,1e7,10000000,3,46108583,0,SI Figure 8 g/o/w; SI Table 7a row 7
+eh_e3,eh,1000,100,1e-2,1e-3,1,1e7,20000000,2,47736148,1,SI Figure 9 a-c; SI Table 7b row 1
+eh_e5,eh,1000,100,1e-2,1e-5,1,1e7,20000000,1,47734175,1,SI Figure 9 g-i; SI Table 7b row 2
+el_e3,el,100,3,1e-4,1e-3,1,1e8,21000000,2,47735463,1,SI Figure 10 a-c; SI Table 7b row 3
+el_e5,el,100,3,1e-4,1e-5,1,1e8,21000000,1,47734189,1,SI Figure 10 g-i; SI Table 7b row 4
+lm_g0_e4,lm/g0,1000,100,1e-2,1e-4,0,1e7,30000000,3,48181135,1,SI Figure 12 a-c; SI Table 7c row 1
+lm_g01_e4,lm/g01,1000,100,1e-2,1e-4,0.1,1e7,31000000,3,48181161,1,SI Figure 12 d-f; SI Table 7c row 2
+lm_g05_e4,lm/g05,1000,100,1e-2,1e-4,0.5,1e7,32000000,3,48181182,1,SI Figure 12 g-i; SI Table 7c row 3

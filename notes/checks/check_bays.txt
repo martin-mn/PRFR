@@ -1,0 +1,60 @@
+32777 CDDCDDDDDDDDDDDC  Prisoner's Dilemma bay, below the switch line, the line v <= 2
+   stable side (u, v) = (-3.000,  1.980): self-play 0.999994 = E_max 1.000000; best co-player 32777 earns 0.999994   PASS
+   other side  (u, v) = (-3.000,  2.020): self-play 0.999994 = E_max 1.000000; best co-player     0 DDDDDDDDDDDDDDDD earns 1.006664
+              its gain over the self-play in the limit: -2/3 + 0 u + 1/3 v = 1/3 x (-2 +1 v): the line of the note
+              its limiting play: R 0, S 0, T 1/3, P 2/3, in cycles of the error-free pair: P, P, T with weight 1
+              1920 co-players get these shares, all with the same cycles
+              the note's play, T, P, P with weight 1: the same   PASS
+18567 CCCDDDDCDDDCDDCD  Prisoner's Dilemma bay, below the switch line, the line u + 2v <= 2
+   stable side (u, v) = (-2.500,  2.230): self-play 0.999993 = E_max 1.000000; best co-player 57231 earns 0.999998   PASS
+   other side  (u, v) = (-2.500,  2.270): self-play 0.999993 = E_max 1.000000; best co-player 55048 DDDCDDDDCCCDCDCC earns 1.009995
+              its gain over the self-play in the limit: -1/2 + 1/4 u + 1/2 v = 1/4 x (-2 +1 u +2 v): the line of the note
+              its limiting play: R 0, S 1/4, T 1/2, P 1/4, in cycles of the error-free pair: S, P, T, T with weight 1
+              352 co-players get these shares, all with the same cycles
+              the note's play, T, T, S, P with weight 1: the same   PASS
+18050 DCDDDDDCDCCDDDCD  Prisoner's Dilemma bay, above the switch line, the line 3u + v >= -1
+   stable side (u, v) = (-3.000,  8.020): self-play 3.009983 = E_max 3.010000; best co-player 55051 earns 3.010001   PASS
+   other side  (u, v) = (-3.000,  7.980): self-play 2.989983 = E_max 2.990000; best co-player 53259 CCDCDDDDDDDDCDCC earns 2.991992
+              its gain over the self-play in the limit: -1/10 + -3/10 u + -1/10 v = 1/10 x (-1 -3 u -1 v): the line of the note
+              its limiting play: R 0, S 1/5, T 2/5, P 2/5, in cycles of the error-free pair: P, T, T, P, S with weight 1
+              640 co-players get these shares, all with the same cycles
+              the note's play, S, P, T, T, P with weight 1: the same   PASS
+11781 CDCDDDDDDCCCDCDD  Harmony bay, wedge E, the line u + 3v >= -1
+   stable side (u, v) = ( 3.000, -1.313): self-play 1.343327 = E_max 1.343333; best co-player 65308 earns 1.343334   PASS
+   other side  (u, v) = ( 3.000, -1.353): self-play 1.323327 = E_max 1.323333; best co-player 61468 DDCCCDDDDDDDCCCC earns 1.329330
+              its gain over the self-play in the limit: -1/10 + -1/10 u + -3/10 v = 1/10 x (-1 -1 u -3 v): the line of the note
+              its limiting play: R 1/5, S 2/5, T 1/5, P 1/5, in cycles of the error-free pair: P, R, S, S, T with weight 1
+              480 co-players get these shares, all with the same cycles
+              the note's play, R, S, S, T, P with weight 1: the same   PASS
+15877 CDCDDDDDDCCCCCDD  Harmony bay, wedge E, the line u + 3v >= -1
+   stable side (u, v) = ( 3.000, -1.313): self-play 1.343328 = E_max 1.343333; best co-player 65308 earns 1.343334   PASS
+   other side  (u, v) = ( 3.000, -1.353): self-play 1.323328 = E_max 1.323333; best co-player 61468 DDCCCDDDDDDDCCCC earns 1.329330
+              its gain over the self-play in the limit: -1/10 + -1/10 u + -3/10 v = 1/10 x (-1 -1 u -3 v): the line of the note
+              its limiting play: R 1/5, S 2/5, T 1/5, P 1/5, in cycles of the error-free pair: P, R, S, S, T with weight 1
+              576 co-players get these shares, all with the same cycles
+              the note's play, R, S, S, T, P with weight 1: the same   PASS
+24069 CDCDDDDDDCCCCDCD  Harmony bay, wedge E, the line u + 3v >= -1
+   stable side (u, v) = ( 3.000, -1.313): self-play 1.343328 = E_max 1.343333; best co-player 65308 earns 1.343334   PASS
+   other side  (u, v) = ( 3.000, -1.353): self-play 1.323328 = E_max 1.323333; best co-player 65292 DDCCDDDDCCCCCCCC earns 1.327082
+              its gain over the self-play in the limit: -1/16 + -1/16 u + -3/16 v = 1/16 x (-1 -1 u -3 v): the line of the note
+              its limiting play: R 1/8, S 7/16, T 5/16, P 1/8, in cycles of the error-free pair: S, T with weight 5/8; S, P, R with weight 3/8
+              288 co-players get these shares, all with the same cycles
+              the note's play, S, T with weight 5/8; S, P, R with weight 3/8: the same   PASS
+46919 CCCDDDCDCCCDCCDC  Harmony sliver of the wedge S, the line u <= 6
+   stable side (u, v) = ( 5.980, -5.500): self-play 0.999997 = E_max 1.000000; best co-player 29567 earns 1.000004   PASS
+   other side  (u, v) = ( 6.020, -5.500): self-play 0.999997 = E_max 1.000000; best co-player 61552 DDDDCCCDDDDDCCCC earns 1.001995
+              its gain over the self-play in the limit: -3/5 + 1/10 u + 0 v = 1/10 x (-6 +1 u): the line of the note
+              its limiting play: R 2/5, S 1/10, T 0, P 1/2, in cycles of the error-free pair: R, P with weight 4/5; S, P with weight 1/5
+              736 co-players get these shares, all with the same cycles
+              the note's play, R, P with weight 4/5; S, P with weight 1/5: the same   PASS
+ 4599 CCCDCCCCCDDDCDDD  Harmony sliver of the wedge S, the line 5u + 4v <= 6
+   stable side (u, v) = ( 7.000, -7.270): self-play 0.999993 = E_max 1.000000; best co-player 49143 earns 1.000012   PASS
+   other side  (u, v) = ( 7.000, -7.230): self-play 0.999994 = E_max 1.000000; best co-player 65520 DDDDCCCCCCCCCCCC earns 1.005333
+              its gain over the self-play in the limit: -2/5 + 1/3 u + 4/15 v = 1/15 x (-6 +5 u +4 v): the line of the note
+              its limiting play: R 1/3, S 1/3, T 4/15, P 1/15, in cycles of the error-free pair: T, R with weight 8/15; R, P with weight 2/15; S with weight 1/3
+              192 co-players get these shares, all with the same cycles
+              the note's play, T, R with weight 8/15; R, P with weight 2/15; S with weight 1/3: the same   PASS
+110 is empty on exactly the polygons of the three bays (5470 of the 27598 polygons of m2_faces.csv): PASS
+the Harmony bay the part of E with u + 3v < -1 covers 3.02% of the disk (the passage: 3.0%)   PASS
+the Harmony bay the sliver of S covers 0.29% of the disk (the passage: 0.3%)   PASS
+ALL PASS

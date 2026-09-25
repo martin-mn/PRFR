@@ -1,0 +1,19 @@
+PASS  the arrangement has 45 faces
+PASS  000: between six and twelve of the sixteen strategies (6 to 12)
+PASS  000: tit-for-tat is the only strategy that never belongs to it (never in 000: ['TFT'])
+PASS  tit-for-tat is competitive at every game
+PASS  100: ALLC and CCCD wherever T > R below the switch line, joined by WSLS where T > 2R - P, and WSLS alone in the Harmony games with S > R
+PASS  100 is empty above the switch line
+PASS  above the switch line no memory-one strategy is efficient
+PASS  100 is empty where T <= R and S <= R, where ALLC, CCCD and WSLS are all stable
+PASS  010 in the Stag Hunt: up to five, among ALLD, Grim, DCCD, DDDC and DCCC (at most 5 at a face)
+PASS  010 in the Stag Hunt: ALLD among them exactly where T < S
+PASS  010: outside the Stag Hunt, DDDC in the Harmony games with 2S < R + P and WSLS alone on the part of the unit square above the switch line, and nobody else
+PASS  on the part of the unit square above the switch line WSLS is stable but not efficient
+PASS  010 is empty on 71% of the disk (71.0%)
+PASS  001: between two and four strategies (2 to 4), tit-for-tat always among them
+PASS  110: all three mutual cooperators where T <= R, S <= R and T > S, and WSLS alone in the Prisoner's Dilemma with T < 2R - P, in the Snowdrift games of the unit square below the switch line, and on the wedge S with S < R
+PASS  011: ALLD and Grim in the Prisoner's Dilemma and in the Stag Hunt with T > S, Grim only where 2S + R <= 3P, and ALLC and CCCD in the Harmony games above the switch line
+PASS  in the Harmony games above the switch line T < S
+PASS  111: ALLC and CCCD on the wedge S and nobody elsewhere
+ALL PASS

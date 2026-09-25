@@ -1,0 +1,3 @@
+wrote ../../simulator/CHECKSUMS.sha256: 64 files of 17 runs, 2.42 GB hashed
+f1_e4: its 512 games against the same games of dw1_e4 (967 games): .idx line, .bin block and .win lines IDENTICAL for every game
+f2_e4: its 512 games against the same games of dw2_e4 (512 games): .idx line, .bin block and .win lines IDENTICAL for every game

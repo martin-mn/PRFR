@@ -1,0 +1,20 @@
+PASS  111*000101*1*010 names [19079, 19087, 20103, 20111, 23175, 23183, 24199, 24207]
+PASS  its wildcards are at positions 3, 10, 12
+PASS  the four that defect at (DC, DC), position 10: [19079, 19087, 23175, 23183]
+PASS  the four patterns of N name 32, 32, 16, 16 strategies
+PASS  the pairs (32, 16) with the same first symbols share 8 each, and no other pair overlaps
+PASS  their union has 80 members (32 + 32 + 16 + 16 - 16 = 80)
+PASS  all 80 agree at the eight positions ****000**1*1*010
+PASS  they cooperate at between 4 and 9 of their 16 states
+PASS  the largest pattern of S, 111*1***11*1****, names 512 strategies
+PASS  families/: the cover of W is the single pattern 111*000101*1*010, unique
+PASS  families/: the cover of N is the four patterns above, unique
+PASS  families/: S has 1519 strategies, the union of its cover too
+PASS  families/: the minimal cover of S has 42 patterns and is not unique
+PASS  families/: its 42 patterns name 4368 strategies with multiplicity
+PASS  families/: its largest pattern is 111*1***11*1****, 512 strategies
+PASS  S contains ALLC, tit-for-two-tats (24415), 20111 and 24207, but not WSLS or AON2 (36873)
+PASS  only two positions are fixed across S, cooperation at (CC, CC) and at (CC, DC) (positions [0, 2])
+PASS  families/: S has 56 prime patterns, with 4 to 9 wildcards each
+PASS  families/: the defensible reading of S has 1036 strategies, 33 prime patterns and a cover of 24
+ALL PASS

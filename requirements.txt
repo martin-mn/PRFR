@@ -1,0 +1,18 @@
+# Python packages that the scripts of this repository import (figures, tables and checkers).
+#   pip install -r requirements.txt
+#
+# The versions are the ones with which every figure was checked against the published one, under
+# Python 3.10.9: pixel-identical, and each PDF byte-identical apart from its creation date. The tables
+# and the numbers do not depend on these versions. With another matplotlib, a figure may differ in
+# antialiasing or text placement. These pins have wheels for Python 3.8-3.11; on a newer Python,
+# install current versions of the same four packages (scipy >= 1.9).
+#
+# Some scripts use only the Python standard library:
+#   - SITable1/sitable1.py, and SITable8/sitable8.py without --m2;
+#   - notes/checks/check_memory_one_atoms.py;
+#   - census/compare.py;
+#   - simulator/ (mkseeds.py, the kit generators and packers).
+numpy==1.23.5         # the figure and table scripts, common/, the checkers in data/, census/ and notes/checks/
+matplotlib==3.7.0     # the figure scripts; the figures were rendered with its bundled DejaVu Sans
+scipy==1.10.0         # Figure1/ (ndimage), families/ and SITable4/ (optimize.milp, needs >= 1.9), common.games.compute_cells (spatial.Voronoi)
+Pillow==9.4.0         # Figure1/

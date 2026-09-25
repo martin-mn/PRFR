@@ -1,0 +1,88 @@
+# sha256 of the packed output of the 17 memory-two Wright-Fisher runs of the paper (the per-strategy
+# abundance histograms .bin are not deposited; see simulator/README.md).  Format of sha256sum: one line
+# '<sha256>  <run>/<pack file>' per file, the run as in SEEDS.csv, the pack file as its kit's pack.py names it.
+# Check a regenerated pack in a directory named after its run:
+#     grep -v '^#' CHECKSUMS.sha256 | grep ' f1/' | sha256sum -c
+# Written by provenance/simulator-notes/mkchecksums.py from the packs the paper used.
+# run: kit, number of games in the pack, bytes of its four (or three) files
+#   m2_N1000 kit dw1   967 games   254419736 bytes
+#   m2_N100  kit dw2   512 games   134708326 bytes
+#   f1       kit f1    512 games   135302348 bytes
+#   f2       kit f2    512 games   135302348 bytes
+#   dw3      kit dw3   512 games   134708326 bytes
+#   dw4      kit dw4   512 games   134708326 bytes
+#   c1       kit c1    512 games   135302348 bytes
+#   c2       kit c2    512 games   135302348 bytes
+#   c3       kit c3    512 games   135302348 bytes
+#   c4       kit c4    512 games   135302348 bytes
+#   eh_e3    kit eh    512 games   135302348 bytes
+#   eh_e5    kit eh    512 games   135302348 bytes
+#   el_e3    kit el    512 games   135302348 bytes
+#   el_e5    kit el    512 games   135302348 bytes
+#   lm_g0    kit lm    512 games   135302348 bytes
+#   lm_g01   kit lm    512 games   135302348 bytes
+#   lm_g05   kit lm    512 games   135302348 bytes
+4e155ba79d0cbcec604136db57c07e2e8a507ce5ec4960041f01c6734d469e80  m2_N1000/dw1_e4.idx
+22af26d5b4555bb1dad94bbf75ebc11ec65a97d92c9a1fde2924c5b5feb7b9ef  m2_N1000/dw1_e4.bin
+ccb0bb73886354340d0ee0bad70732facb0e147872f3487357b683147d633602  m2_N1000/dw1_e4.win
+b64816a3d05c45ed0b05a5442befd4e070cbd6e9aa26de93fe5351165e812f14  m2_N100/dw2_e4.idx
+b695335fc94c86bcb790fe2fa42dcb754599c6a52c58057b85a8b7541f56fd4e  m2_N100/dw2_e4.bin
+2cc15e313649b80ff348496a9fe868d1d764c446f934b4c6bd33754613be208e  m2_N100/dw2_e4.win
+e7b831f8eeb57d1dc582834bc349ec454844c04e32b5128dde0f14f30274641b  f1/f1_e4.idx
+80876f4b776f5188fe0f8fbb552386e29b39c8d5bc6f9c62263b017d1a24d5d8  f1/f1_e4.bin
+6caca0cbdbd7b89d8f938e95be86d1b3f133af11d8e0645c9c17e2f1c5a30188  f1/f1_e4.win
+e8b640c39b111bb2a47832cd307f6e23a7107d28988618a57a511f75d8b1edfb  f1/f1_e4.rep
+b64816a3d05c45ed0b05a5442befd4e070cbd6e9aa26de93fe5351165e812f14  f2/f2_e4.idx
+b695335fc94c86bcb790fe2fa42dcb754599c6a52c58057b85a8b7541f56fd4e  f2/f2_e4.bin
+2cc15e313649b80ff348496a9fe868d1d764c446f934b4c6bd33754613be208e  f2/f2_e4.win
+5bb4196a1b1f846083bb334c22bbbf3dfafac519ff51d514f698973be6ada627  f2/f2_e4.rep
+44884e6b0bcdc45b84957eadf41efc0d5b818b600d8be65197b0fde737edf32c  dw3/dw3_e4.idx
+6d5c5d763c29d1f19955ceacfbe8dc7f2553aff8ab838c6f1914801a681f0d03  dw3/dw3_e4.bin
+7c901783dce828acb411196bef5f2b00157fa12d329f007f4d68b5decf9d61e5  dw3/dw3_e4.win
+e780cf2fd5282e8fa68000c4d3134b399a7ee2b28ab948c02a6588df81106ea4  dw4/dw4_e4.idx
+30b552cf9623e4af5c8a6e9ae557a9e8c4154d4da6cea910cc5a7e947d379b23  dw4/dw4_e4.bin
+20dca402733b4bda9299e66a9765fdcd3c3f7953dc5e7dc3cce99e640a3eff5e  dw4/dw4_e4.win
+c128868e5bc38b23b73cf47d8ba4728f9f4879d8f27dae62340cd84c96055ec4  c1/c1_e4.idx
+139d8f6725f91aa77c32c2b6d786cd608840e7605a397262eff74152b63720e2  c1/c1_e4.bin
+643a27672af31357676acbdf932e1bd3eef9acd9a6bb414b394aa182b9aec883  c1/c1_e4.win
+d93443ba52938ce60f3454f4081c95e67926fedb7b3b4ed28518b9075810a25a  c1/c1_e4.rep
+35fd2fc9e39bb52fb504099da8f9481253de35b33ecf31490baa8f7b174771a0  c2/c2_e4.idx
+7dd24ade424565c2f446208b47ed77780541590e6db768acb77ab9cdae6b47b8  c2/c2_e4.bin
+7cfdb7304425f8a91b2e42bd453cb0bb362198d917cb210760ded3957911bfc8  c2/c2_e4.win
+bbb7348215876070f5fe5417c1f5db288d75d535cf04a380a5ca698bcb847b14  c2/c2_e4.rep
+c9a9273b3d602e5eb41c5cb81798616fd3a3b719236f1f27c1a7baa5884edbe0  c3/c3_e4.idx
+4fa9d73a159294eed1bfe347d38ecb0722003be76ff1115ac909c48b5f309e2c  c3/c3_e4.bin
+7890c9bdaca144a82c0daa962942f92deea4005d2a81b44fda44c2647c38fee0  c3/c3_e4.win
+bb673fde2e658180ee58fa905902e4037ee307180587cc7dab09ab3c3aed1d84  c3/c3_e4.rep
+f46c9511be91b5ea3676195af5e4fc1f1b0e9e51ac293fdee68a1dc95731fe7f  c4/c4_e4.idx
+68aff30d7bd0495066c5430a5b55bf5fb9f434e1223c6f75734aaed68b48b32f  c4/c4_e4.bin
+17625ba9e07d495f58ee263a5bc4755ed5bb1d877d3b2518c58a4895165f0252  c4/c4_e4.win
+bf8094e5158839577592f40d9ae09af29620e17ca42485ce26afe388c2869149  c4/c4_e4.rep
+f9f1d1e89b7353211debed78b7c8c2ad78315328b9a3adbe226eb1670cf426cf  eh_e3/eh_e3.idx
+23c23f71cd42358b8614f6dabf2d11a9ccaa830d6a32f1fdb32a9ddba57caa4b  eh_e3/eh_e3.bin
+87f0d2351142f55ed73210ed147bb92993b863f60bc837a586b21618e3e93c42  eh_e3/eh_e3.win
+eba9dd24531197476aa4e2c46346f198a185f97399ac5e0d7b562f1f6b09e6a3  eh_e3/eh_e3.rep
+ab918eae1bc193e21f6da132d45cb0d4944cb64a44c1cd3bd6995b13e8bcd77c  eh_e5/eh_e5.idx
+d29a694d3442f7f84d2a1183875c7050a44a9f62be6a5b60f75788c365ebc58c  eh_e5/eh_e5.bin
+7e3c7a1a15b96b1d75487b8ab6609d9d75a564f8649af455b38b31e62b12618b  eh_e5/eh_e5.win
+3be79f5769c3367cc75e71baea86402de75b44afd675f4cb4c02c29d2f075310  eh_e5/eh_e5.rep
+c90c75bf04a48419bbf40fab6db21538ef46ae32ef8fd34965bc29b1ce4498e2  el_e3/el_e3.idx
+defddb905d29bc790476992dd7bf055c24ab77a64fea32e1f93727d4770ecb09  el_e3/el_e3.bin
+d736e978ee0786d14f176e4edf34881a5319ab6a0bd462281f8996cc8c453279  el_e3/el_e3.win
+4ccd08966d197a2b026058804ec1b3be29af65d226acba2f349607b7e4765ccc  el_e3/el_e3.rep
+dcc36b5f713ecbf10dee494c61efc327f31eb34120cc8c1aeae9f88523a5c004  el_e5/el_e5.idx
+069d4ce6b8e4d862f899de9823ee8b2d78d4bb42051a575f60ff27fa96c4ba5a  el_e5/el_e5.bin
+95c9d93426e616228e711a965483f5135b8232ad822824d5d22be64eb0255dc8  el_e5/el_e5.win
+e8bbd525892297a9805546fac43f464823251e42da71a2ecc2570c2a99dd9f20  el_e5/el_e5.rep
+e3b272cdfe68adb292f71d2bbf358a6401eace5b78ba8bfbf71b5c2ae6a7e3a4  lm_g0/lm_g0_e4.idx
+f99a9332797699149b902f26580b367518578850308aa84941c018bd203ea4aa  lm_g0/lm_g0_e4.bin
+1854b5cb7b9ed3da3952cdd24b088d072c70dc999797c3dd2c8e0f9ae3c21d8b  lm_g0/lm_g0_e4.win
+b3cf15196f718e8e7adf997a4058f49580533e21cee76e835c8a3fc56fe0de82  lm_g0/lm_g0_e4.rep
+0c960999a94b41b67404d8c8e019c7a30568279175a4051ccd8ca57095bb971a  lm_g01/lm_g01_e4.idx
+d9bf08196efbc2a6b603c10c8577d6d2c43d14609196d7d7ea8c9c03dd76f4d4  lm_g01/lm_g01_e4.bin
+6efa6abdfdb98ae27842d413b3759270745585acf19c8592f3c3666594cb9347  lm_g01/lm_g01_e4.win
+7321cea170dfe1e0862bc54687a0d0a7c40c3e78153401febbf8d7dd1765b0bb  lm_g01/lm_g01_e4.rep
+52a3dbdd1bba3205d3a0b206a655ad8273c2a889c730da8ef1474ec3a5371673  lm_g05/lm_g05_e4.idx
+c8c82829d6ee8fbbcd50a3447b01e6995873aecceea974d243079168d2e62b97  lm_g05/lm_g05_e4.bin
+5a6a2501403cdd49e6213d6a6c6ffebd86c2599cdc8494b336983c955ef6e290  lm_g05/lm_g05_e4.win
+a947a0fadf9caf0a0cdba08f0f3e03daa2538eb2123209cd9b1443a3718c9934  lm_g05/lm_g05_e4.rep

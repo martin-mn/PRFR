@@ -1,0 +1,451 @@
+==============================================================================
+W (u+v<1, u-v<1): mutual cooperators, rivals for T>S: 8 strategies 
+==============================================================================
+common pattern (fixed positions of the whole set): 111*000101*1*010   (13 fixed)
+prime patterns: 1; wildcard counts: {3: 1}
+minimum cover: 1 patterns
+minimum cover unique: True
+  family  1: 111*000101*1*010   3 wildcards -> 8 strategies; ids [19079, 19087, 20103, 20111] ...
+             CC | C C C *
+             CD | D D D C
+             DC | D C * C
+             DD | * D C D
+  sum of family sizes 8 (set size 8; overlap 0)
+==============================================================================
+N (u+v>1, u-v<1): alternators, rivals for T>S: 80 strategies 
+==============================================================================
+common pattern (fixed positions of the whole set): ****000**1*1*010   (8 fixed)
+prime patterns: 4; wildcard counts: {5: 2, 4: 2}
+minimum cover: 4 patterns
+minimum cover unique: True
+  family  1: *10*0000*1*1*010   5 wildcards -> 32 strategies; ids [18946, 18947, 18954, 18955] ...
+             CC | * C D *
+             CD | D D D D
+             DC | * C * C
+             DD | * D C D
+  family  2: *01*0000*1*1*010   5 wildcards -> 32 strategies; ids [18948, 18949, 18956, 18957] ...
+             CC | * D C *
+             CD | D D D D
+             DC | * C * C
+             DD | * D C D
+  family  3: *10*000*11*10010   4 wildcards -> 16 strategies; ids [19202, 19203, 19210, 19211] ...
+             CC | * C D *
+             CD | D D D *
+             DC | C C * C
+             DD | D D C D
+  family  4: *01*000*11*10010   4 wildcards -> 16 strategies; ids [19204, 19205, 19212, 19213] ...
+             CC | * D C *
+             CD | D D D *
+             DC | C C * C
+             DD | D D C D
+  sum of family sizes 96 (set size 80; overlap 16)
+==============================================================================
+E (u+v>1, u-v>1): alternators, rivals for T<S: 80 strategies (mirror image of N)
+==============================================================================
+common pattern (fixed positions of the whole set): 101*0*0**111****   (8 fixed)
+prime patterns: 4; wildcard counts: {5: 2, 4: 2}
+minimum cover: 4 patterns
+minimum cover unique: True
+  family  1: 101*0*0*1111*10*   5 wildcards -> 32 strategies; ids [12037, 12045, 12069, 12077] ...
+             CC | C D C *
+             CD | D * D *
+             DC | C C C C
+             DD | * C D *
+  family  2: 101*0*0*1111*01*   5 wildcards -> 32 strategies; ids [20229, 20237, 20261, 20269] ...
+             CC | C D C *
+             CD | D * D *
+             DC | C C C C
+             DD | * D C *
+  family  3: 10110*00*111*10*   4 wildcards -> 16 strategies; ids [11789, 11821, 12045, 12077] ...
+             CC | C D C C
+             CD | D * D D
+             DC | * C C C
+             DD | * C D *
+  family  4: 10110*00*111*01*   4 wildcards -> 16 strategies; ids [19981, 20013, 20237, 20269] ...
+             CC | C D C C
+             CD | D * D D
+             DC | * C C C
+             DD | * D C *
+  sum of family sizes 96 (set size 80; overlap 16)
+==============================================================================
+S (u+v<1, u-v>1): mutual cooperators, rivals for T<S: 1519 strategies 
+==============================================================================
+common pattern (fixed positions of the whole set): 1*1*************   (2 fixed)
+prime patterns: 56; wildcard counts: {9: 1, 8: 2, 7: 17, 6: 25, 5: 8, 4: 3}
+minimum cover: 42 patterns
+minimum cover unique: False
+  family  1: 111*1***11*1****   9 wildcards -> 512 strategies; ids [2839, 2847, 2871, 2879] ...
+             CC | C C C *
+             CD | C * * *
+             DC | C C * C
+             DD | * * * *
+  family  2: 111*1*1*1*11****   8 wildcards -> 256 strategies; ids [3415, 3423, 3447, 3455] ...
+             CC | C C C *
+             CD | C * C *
+             DC | C * C C
+             DD | * * * *
+  family  3: 111***1*1111****   8 wildcards -> 256 strategies; ids [3911, 3919, 3927, 3935] ...
+             CC | C C C *
+             CD | * * C *
+             DC | C C C C
+             DD | * * * *
+  family  4: 111*111111******   7 wildcards -> 128 strategies; ids [1015, 1023, 2039, 2047] ...
+             CC | C C C *
+             CD | C C C C
+             DC | C C * *
+             DD | * * * *
+  family  5: 111*11111*1*****   7 wildcards -> 128 strategies; ids [1527, 1535, 2039, 2047] ...
+             CC | C C C *
+             CD | C C C C
+             DC | C * C *
+             DD | * * * *
+  family  6: 111*11111**1****   7 wildcards -> 128 strategies; ids [2551, 2559, 3063, 3071] ...
+             CC | C C C *
+             CD | C C C C
+             DC | C * * C
+             DD | * * * *
+  family  7: 1111111***11****   7 wildcards -> 128 strategies; ids [3199, 3327, 3455, 3583] ...
+             CC | C C C C
+             CD | C C C *
+             DC | * * C C
+             DD | * * * *
+  family  8: 111111***111****   7 wildcards -> 128 strategies; ids [3647, 3711, 3775, 3839] ...
+             CC | C C C C
+             CD | C C * *
+             DC | * C C C
+             DD | * * * *
+  family  9: 1111**1**111*1**   7 wildcards -> 128 strategies; ids [11855, 11871, 11887, 11903] ...
+             CC | C C C C
+             CD | * * C *
+             DC | * C C C
+             DD | * C * *
+  family 10: 1111111***1***1*   7 wildcards -> 128 strategies; ids [17535, 17663, 17791, 17919] ...
+             CC | C C C C
+             CD | C C C *
+             DC | * * C *
+             DD | * * C *
+  family 11: 11111*1*1*1***1*   7 wildcards -> 128 strategies; ids [17759, 17791, 17887, 17919] ...
+             CC | C C C C
+             CD | C * C *
+             DC | C * C *
+             DD | * * C *
+  family 12: 11111*1**11***1*   7 wildcards -> 128 strategies; ids [18015, 18047, 18143, 18175] ...
+             CC | C C C C
+             CD | C * C *
+             DC | * C C *
+             DD | * * C *
+  family 13: 1111**1**111**1*   7 wildcards -> 128 strategies; ids [20047, 20063, 20079, 20095] ...
+             CC | C C C C
+             CD | * * C *
+             DC | * C C C
+             DD | * * C *
+  family 14: 111*1*1*1*1*1*1*   7 wildcards -> 128 strategies; ids [21847, 21855, 21879, 21887] ...
+             CC | C C C *
+             CD | C * C *
+             DC | C * C *
+             DD | C * C *
+  family 15: 11111***11***11*   7 wildcards -> 128 strategies; ids [25375, 25407, 25439, 25471] ...
+             CC | C C C C
+             CD | C * * *
+             DC | C C * *
+             DD | * C C *
+  family 16: 1111**1**11**11*   7 wildcards -> 128 strategies; ids [26191, 26207, 26223, 26239] ...
+             CC | C C C C
+             CD | * * C *
+             DC | * C C *
+             DD | * C C *
+  family 17: 111*111*11*****1   7 wildcards -> 128 strategies; ids [33655, 33663, 33783, 33791] ...
+             CC | C C C *
+             CD | C C C *
+             DC | C C * *
+             DD | * * * C
+  family 18: 111*111*1*1****1   7 wildcards -> 128 strategies; ids [34167, 34175, 34295, 34303] ...
+             CC | C C C *
+             CD | C C C *
+             DC | C * C *
+             DD | * * * C
+  family 19: 1111**1**111***1   7 wildcards -> 128 strategies; ids [36431, 36447, 36463, 36479] ...
+             CC | C C C C
+             CD | * * C *
+             DC | * C C C
+             DD | * * * C
+  family 20: 111*111***11**00   6 wildcards -> 64 strategies; ids [3191, 3199, 3319, 3327] ...
+             CC | C C C *
+             CD | C C C *
+             DC | * * C C
+             DD | * * D D
+  family 21: 111*1*1**111**00   6 wildcards -> 64 strategies; ids [3671, 3679, 3703, 3711] ...
+             CC | C C C *
+             CD | C * C *
+             DC | * C C C
+             DD | * * D D
+  family 22: 111111111***1***   6 wildcards -> 64 strategies; ids [4607, 5119, 5631, 6143] ...
+             CC | C C C C
+             CD | C C C C
+             DC | C * * *
+             DD | C * * *
+  family 23: 1111111*1*1*1***   6 wildcards -> 64 strategies; ids [5503, 5631, 6015, 6143] ...
+             CC | C C C C
+             CD | C C C *
+             DC | C * C *
+             DD | C * * *
+  family 24: 111*111*11***10*   6 wildcards -> 64 strategies; ids [9079, 9087, 9207, 9215] ...
+             CC | C C C *
+             CD | C C C *
+             DC | C C * *
+             DD | * C D *
+  family 25: 111*111*1*1**10*   6 wildcards -> 64 strategies; ids [9591, 9599, 9719, 9727] ...
+             CC | C C C *
+             CD | C C C *
+             DC | C * C *
+             DD | * C D *
+  family 26: 11111*1*111**1**   6 wildcards -> 64 strategies; ids [10079, 10111, 10207, 10239] ...
+             CC | C C C C
+             CD | C * C *
+             DC | C C C *
+             DD | * C * *
+  family 27: 11111*1*11**11**   6 wildcards -> 64 strategies; ids [13151, 13183, 13279, 13311] ...
+             CC | C C C C
+             CD | C * C *
+             DC | C C * *
+             DD | C C * *
+  family 28: 1111**1*111*11**   6 wildcards -> 64 strategies; ids [14159, 14175, 14191, 14207] ...
+             CC | C C C C
+             CD | * * C *
+             DC | C C C *
+             DD | C C * *
+  family 29: 111111111*****1*   6 wildcards -> 64 strategies; ids [16895, 17407, 17919, 18431] ...
+             CC | C C C C
+             CD | C C C C
+             DC | C * * *
+             DD | * * C *
+  family 30: 111*111*11***01*   6 wildcards -> 64 strategies; ids [17271, 17279, 17399, 17407] ...
+             CC | C C C *
+             CD | C C C *
+             DC | C C * *
+             DD | * D C *
+  family 31: 111*111*1*1**01*   6 wildcards -> 64 strategies; ids [17783, 17791, 17911, 17919] ...
+             CC | C C C *
+             CD | C C C *
+             DC | C * C *
+             DD | * D C *
+  family 32: 111*11111***1*1*   6 wildcards -> 64 strategies; ids [20983, 20991, 21495, 21503] ...
+             CC | C C C *
+             CD | C C C C
+             DC | C * * *
+             DD | C * C *
+  family 33: 111*111*11**1*1*   6 wildcards -> 64 strategies; ids [21367, 21375, 21495, 21503] ...
+             CC | C C C *
+             CD | C C C *
+             DC | C C * *
+             DD | C * C *
+  family 34: 1*110*0*011**11*   6 wildcards -> 64 strategies; ids [26125, 26127, 26157, 26159] ...
+             CC | C * C C
+             CD | D * D *
+             DC | D C C *
+             DD | * C C *
+  family 35: 111111***11**11*   6 wildcards -> 64 strategies; ids [26175, 26239, 26303, 26367] ...
+             CC | C C C C
+             CD | C C * *
+             DC | * C C *
+             DD | * C C *
+  family 36: 111*1***111*111*   6 wildcards -> 64 strategies; ids [30487, 30495, 30519, 30527] ...
+             CC | C C C *
+             CD | C * * *
+             DC | C C C *
+             DD | C C C *
+  family 37: 111***1*111*111*   6 wildcards -> 64 strategies; ids [30535, 30543, 30551, 30559] ...
+             CC | C C C *
+             CD | * * C *
+             DC | C C C *
+             DD | C C C *
+  family 38: 111*111*1**10*00   5 wildcards -> 32 strategies; ids [2423, 2431, 2551, 2559] ...
+             CC | C C C *
+             CD | C C C *
+             DC | C * * C
+             DD | D * D D
+  family 39: 111*11***111*000   5 wildcards -> 32 strategies; ids [3639, 3647, 3703, 3711] ...
+             CC | C C C *
+             CD | C C * *
+             DC | * C C C
+             DD | * D D D
+  family 40: 11110**10111*1**   5 wildcards -> 32 strategies; ids [11919, 11951, 11983, 12015] ...
+             CC | C C C C
+             CD | D * * C
+             DC | D C C C
+             DD | * C * *
+  family 41: 11110**10111**1*   5 wildcards -> 32 strategies; ids [20111, 20143, 20175, 20207] ...
+             CC | C C C C
+             CD | D * * C
+             DC | D C C C
+             DD | * * C *
+  family 42: 1*110*0*0111*001   4 wildcards -> 16 strategies; ids [36365, 36367, 36397, 36399] ...
+             CC | C * C C
+             CD | D * D *
+             DC | D C C C
+             DD | * D D C
+  sum of family sizes 4368 (set size 1519; overlap 2849)
+==============================================================================
+S restricted to the defensible reading (efficient and defensible, T<S): 1036 strategies 
+==============================================================================
+common pattern (fixed positions of the whole set): 1*1*******1*****   (3 fixed)
+prime patterns: 33; wildcard counts: {8: 3, 7: 11, 6: 9, 5: 7, 4: 3}
+minimum cover: 24 patterns
+minimum cover unique: False
+  family  1: 111*1*1*1*11****   8 wildcards -> 256 strategies; ids [3415, 3423, 3447, 3455] ...
+             CC | C C C *
+             CD | C * C *
+             DC | C * C C
+             DD | * * * *
+  family  2: 111*1***1111****   8 wildcards -> 256 strategies; ids [3863, 3871, 3895, 3903] ...
+             CC | C C C *
+             CD | C * * *
+             DC | C C C C
+             DD | * * * *
+  family  3: 111***1*1111****   8 wildcards -> 256 strategies; ids [3911, 3919, 3927, 3935] ...
+             CC | C C C *
+             CD | * * C *
+             DC | C C C C
+             DD | * * * *
+  family  4: 1111111***11****   7 wildcards -> 128 strategies; ids [3199, 3327, 3455, 3583] ...
+             CC | C C C C
+             CD | C C C *
+             DC | * * C C
+             DD | * * * *
+  family  5: 111111***111****   7 wildcards -> 128 strategies; ids [3647, 3711, 3775, 3839] ...
+             CC | C C C C
+             CD | C C * *
+             DC | * C C C
+             DD | * * * *
+  family  6: 1111**1**111*1**   7 wildcards -> 128 strategies; ids [11855, 11871, 11887, 11903] ...
+             CC | C C C C
+             CD | * * C *
+             DC | * C C C
+             DD | * C * *
+  family  7: 1111111***1***1*   7 wildcards -> 128 strategies; ids [17535, 17663, 17791, 17919] ...
+             CC | C C C C
+             CD | C C C *
+             DC | * * C *
+             DD | * * C *
+  family  8: 11111*1*1*1***1*   7 wildcards -> 128 strategies; ids [17759, 17791, 17887, 17919] ...
+             CC | C C C C
+             CD | C * C *
+             DC | C * C *
+             DD | * * C *
+  family  9: 11111*1**11***1*   7 wildcards -> 128 strategies; ids [18015, 18047, 18143, 18175] ...
+             CC | C C C C
+             CD | C * C *
+             DC | * C C *
+             DD | * * C *
+  family 10: 1111**1**111**1*   7 wildcards -> 128 strategies; ids [20047, 20063, 20079, 20095] ...
+             CC | C C C C
+             CD | * * C *
+             DC | * C C C
+             DD | * * C *
+  family 11: 111*1*1*1*1*1*1*   7 wildcards -> 128 strategies; ids [21847, 21855, 21879, 21887] ...
+             CC | C C C *
+             CD | C * C *
+             DC | C * C *
+             DD | C * C *
+  family 12: 1111**1**11**11*   7 wildcards -> 128 strategies; ids [26191, 26207, 26223, 26239] ...
+             CC | C C C C
+             CD | * * C *
+             DC | * C C *
+             DD | * C C *
+  family 13: 1111**1**111***1   7 wildcards -> 128 strategies; ids [36431, 36447, 36463, 36479] ...
+             CC | C C C C
+             CD | * * C *
+             DC | * C C C
+             DD | * * * C
+  family 14: 111*111***11**00   6 wildcards -> 64 strategies; ids [3191, 3199, 3319, 3327] ...
+             CC | C C C *
+             CD | C C C *
+             DC | * * C C
+             DD | * * D D
+  family 15: 111*1*1**111**00   6 wildcards -> 64 strategies; ids [3671, 3679, 3703, 3711] ...
+             CC | C C C *
+             CD | C * C *
+             DC | * C C C
+             DD | * * D D
+  family 16: 1*110*0*011**11*   6 wildcards -> 64 strategies; ids [26125, 26127, 26157, 26159] ...
+             CC | C * C C
+             CD | D * D *
+             DC | D C C *
+             DD | * C C *
+  family 17: 111111***11**11*   6 wildcards -> 64 strategies; ids [26175, 26239, 26303, 26367] ...
+             CC | C C C C
+             CD | C C * *
+             DC | * C C *
+             DD | * C C *
+  family 18: 11111***111**11*   6 wildcards -> 64 strategies; ids [26399, 26431, 26463, 26495] ...
+             CC | C C C C
+             CD | C * * *
+             DC | C C C *
+             DD | * C C *
+  family 19: 111*1***111*111*   6 wildcards -> 64 strategies; ids [30487, 30495, 30519, 30527] ...
+             CC | C C C *
+             CD | C * * *
+             DC | C C C *
+             DD | C C C *
+  family 20: 111***1*111*111*   6 wildcards -> 64 strategies; ids [30535, 30543, 30551, 30559] ...
+             CC | C C C *
+             CD | * * C *
+             DC | C C C *
+             DD | C C C *
+  family 21: 111*11***111*000   5 wildcards -> 32 strategies; ids [3639, 3647, 3703, 3711] ...
+             CC | C C C *
+             CD | C C * *
+             DC | * C C C
+             DD | * D D D
+  family 22: 11110**10111*1**   5 wildcards -> 32 strategies; ids [11919, 11951, 11983, 12015] ...
+             CC | C C C C
+             CD | D * * C
+             DC | D C C C
+             DD | * C * *
+  family 23: 11110**10111**1*   5 wildcards -> 32 strategies; ids [20111, 20143, 20175, 20207] ...
+             CC | C C C C
+             CD | D * * C
+             DC | D C C C
+             DD | * * C *
+  family 24: 1*110*0*0111*001   4 wildcards -> 16 strategies; ids [36365, 36367, 36397, 36399] ...
+             CC | C * C C
+             CD | D * D *
+             DC | D C C C
+             DD | * D D C
+  sum of family sizes 2608 (set size 1036; overlap 1572)
+==============================================================================
+W and S both: friendly rivals on both sides of T=S: 2 strategies 
+==============================================================================
+common pattern (fixed positions of the whole set): 111100010111*010   (15 fixed)
+prime patterns: 1; wildcard counts: {1: 1}
+minimum cover: 1 patterns
+minimum cover unique: True
+  family  1: 111100010111*010   1 wildcards -> 2 strategies; ids [20111, 24207]
+             CC | C C C C
+             CD | D D D C
+             DC | D C C C
+             DD | * D C D
+  sum of family sizes 2 (set size 2; overlap 0)
+==============================================================================
+E and N both: alternators that are rivals both ways: 8 strategies 
+==============================================================================
+common pattern (fixed positions of the whole set): 101*000**111*010   (12 fixed)
+prime patterns: 3; wildcard counts: {2: 3}
+minimum cover: 3 patterns
+minimum cover unique: True
+  family  1: 10110000*111*010   2 wildcards -> 4 strategies; ids [19981, 20237, 24077, 24333]
+             CC | C D C C
+             CD | D D D D
+             DC | * C C C
+             DD | * D C D
+  family  2: 101*000*11110010   2 wildcards -> 4 strategies; ids [20229, 20237, 20357, 20365]
+             CC | C D C *
+             CD | D D D *
+             DC | C C C C
+             DD | D D C D
+  family  3: 101*00001111*010   2 wildcards -> 4 strategies; ids [20229, 20237, 24325, 24333]
+             CC | C D C *
+             CD | D D D D
+             DC | C C C C
+             DD | * D C D
+  sum of family sizes 12 (set size 8; overlap 4)

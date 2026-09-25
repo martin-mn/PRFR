@@ -1,0 +1,61 @@
+# macOS
+.DS_Store
+__MACOSX/
+._*
+
+# Python
+__pycache__/
+*.pyc
+
+# reproduce_all.sh: the output of every step
+/reproduce_log/
+
+# Written by the figure scripts but not deposited: the PDFs of Figures 2 and 3, which are over 5 MB (their
+# 150-dpi PNG previews are deposited), and the PNG previews of every figure whose PDF is deposited
+/Figure1/Fig1.png
+/Figure2/Fig2.pdf
+/Figure3/Fig3.pdf
+/Figure4/Fig4.png
+/Figure5/Fig5.png
+/SIFigure2/SIFig2.png
+/SIFigure3/SIFig3.png
+/SIFigure4/SIFig4.png
+/SIFigure5/SIFig5.png
+# SI Figures 6 and 7 write their preview only with --png
+/SIFigure6/SIFig6.png
+/SIFigure7/SIFig7.png
+/SIFigure8/SIFig8.png
+/SIFigure9/SIFig9.png
+/SIFigure10/SIFig10.png
+/SIFigure11/SIFig11.png
+/SIFigure12/SIFig12.png
+
+# SI Figure 1 built by hand with pdflatex in its folder (build.sh uses a temporary directory)
+/SIFigure1/*.aux
+/SIFigure1/*.log
+
+# census/: the programs built by make, and the raw outputs of a local run of cannon/task.sh
+/census/pairs
+/census/pairsq
+/census/out/
+# census/cannon/: the copies of the sources, the programs, the raw outputs and the job files of a cluster run,
+# and the raw outputs of the cluster run fetched back (cannon/RESULT.md)
+/census/cannon/pairs.c
+/census/cannon/pairsq.c
+/census/cannon/compare.py
+/census/cannon/pairs
+/census/cannon/pairsq
+/census/cannon/out/
+/census/cannon/probe_*.out
+/census/cannon/probe_*.err
+/census/cannon/full_*.out
+/census/cannon/full_*.err
+/census/cannon/full_out/
+/census/cannon/out_full.tgz
+
+# simulator/: staged copies, builds and run outputs are listed in simulator/.gitignore
+
+# Fortran build products
+*.o
+*.mod
+a.out

@@ -1,0 +1,9 @@
+# SI Table 2, the four open quarter-planes, recomputed by SITable2/sitable2.py from data/census/census.csv.
+# u_plus_v, u_minus_v: the side of the switch line u+v=1 and of the line u-v=1 (T=S); opens_towards: the direction
+# at infinity inside the wedge; efficient_means: what attains Emax there; rivalry: the sign of T-S there;
+# friendly_rivals_limit / _defensible: the efficient strategies that are rivals in the limit eps->0 / defensible.
+wedge,u_plus_v,u_minus_v,opens_towards,efficient_means,rivalry,friendly_rivals_limit,friendly_rivals_defensible
+W,<1,<1,u->-inf,mutual cooperation,T>S,8,8
+S,<1,>1,v->-inf,mutual cooperation,T<S,1519,1036
+E,>1,>1,u->+inf,alternation,T<S,80,80
+N,>1,<1,v->+inf,alternation,T>S,80,80

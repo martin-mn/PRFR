@@ -1,0 +1,20 @@
+# SI Table 3, the counts at the donation game (u,v) = (-2,2), b = 1, c = 2/3, in the limit eps -> 0, recomputed
+# by SITable3/sitable3.py from data/census/census.csv (exact run; strategies) and census_double.csv
+# (double-precision run; strategies_double).  The rows, in the order of the paper's table:
+#   competitive                 competitive
+#   efficient                   efficient
+#   Nash                        stable
+#   partner                     efficient and stable (partner)
+#   friendly_rival              efficient and competitive (friendly rival)
+#   efficient_Nash_competitive  efficient, stable and competitive
+#   Nash_competitive            stable and competitive, efficiency dropped
+#   partner_tie_clause          partners satisfying the tie clause
+row,strategies,strategies_double
+competitive,2640,2640
+efficient,7639,7639
+Nash,672,672
+partner,187,187
+friendly_rival,8,8
+efficient_Nash_competitive,8,8
+Nash_competitive,493,493
+partner_tie_clause,8,8

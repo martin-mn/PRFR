@@ -1,0 +1,30 @@
+1. against the original m1atoms.py and m1_atoms_k4.npz
+  ok    the 256 exact pair limits are identical
+  ok    the atom codes of the 16 on all 45 faces of m1_atoms_k4.npz follow from the regions of SI Table 8
+  ok    its eleven lines are u=-1,-1/2,0,1/2,1; v=-1,-1/2,0,1; u+v=1; u-v=1
+2. against the exact memory-two census (BinM2NE1 ca1_regions.csv, vs all 65536 co-players)
+       DDDD  census dim  2: u<=0                   same
+       CDDD  census dim  2: u<=-1/2                same
+       DCDD  census dim  1: v=3u-1 & u>=0          same
+       CCDD  census dim  0: u=0 & v=0              same
+       DDCD  census dim  1: u+v=-1 & u<=-1         same
+       CDCD  census dim -1: --                     same
+       DCCD  census dim  2: u<=-1 & v<=-1          same
+       CCCD  census dim  2: v<=0                   same
+       DDDC  census dim  2: u<=1/2 & v<=0          same
+       CDDC  census dim  2: u<=1 & v<=1            same
+       DCDC  census dim  0: u=1/2 & v=-1/2         same
+       CCDC  census dim  1: u=3v+1 & v>=0          same
+       DDCC  census dim  0: u=0 & v=0              same
+       CDCC  census dim  1: u+v=1 & u>=0           same
+       DCCC  census dim  2: u<=0 & v<=-1/2         same
+       CCCC  census dim  2: v<=0                   same
+  ok    all sixteen found in the census; stability regions and self-play weights compared above
+3. the copies of the printed tables
+  ok    SI Table 8 in sitable8.py = SI Table 8 in ms.tex
+  ok    SI Table 1 in sitable1.py = SI Table 1 in ms.tex
+4. SI Figure 1
+  ok    SIFig1.tex = FinalFigures/SI/SIFig1.tex apart from comment lines
+  ok    SIFig1.pdf = the published figures/SI/SIFig1.pdf (md5 864973f6e680bb58e24167d871d11d61)
+
+all provenance checks pass

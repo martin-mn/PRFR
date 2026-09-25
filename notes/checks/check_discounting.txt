@@ -1,0 +1,28 @@
+max over all co-players of (pi(tau,sigma) - pi(sigma,tau)) / (T - S), started cooperatively, eps = 0:
+   sigma   delta = 0.9      delta = 0.99     delta = 0.999 
+   TFT     0.1000000000     0.0100000000     0.0010000000     = 1 - delta, attained by ALLD   PASS
+   Grim    0.1000000000     0.0100000000     0.0010000000     = 1 - delta, attained by ALLD   PASS
+   19079   0.1000000000     0.0100000000     0.0010000000     = 1 - delta, attained by ALLD   PASS
+   19087   0.1000000000     0.0100000000     0.0010000000     = 1 - delta, attained by ALLD   PASS
+   20103   0.1000000000     0.0100000000     0.0010000000     = 1 - delta, attained by ALLD   PASS
+   20111   0.1000000000     0.0100000000     0.0010000000     = 1 - delta, attained by ALLD   PASS
+   23175   0.1000000000     0.0100000000     0.0010000000     = 1 - delta, attained by ALLD   PASS
+   23183   0.1000000000     0.0100000000     0.0010000000     = 1 - delta, attained by ALLD   PASS
+   24199   0.1000000000     0.0100000000     0.0010000000     = 1 - delta, attained by ALLD   PASS
+   24207   0.1000000000     0.0100000000     0.0010000000     = 1 - delta, attained by ALLD   PASS
+with errors, eps = 1e-4: the maximum, and by how much ALLD falls short of it:
+   TFT     0.100070 (0.0e+00)   0.010097 (0.0e+00)   0.001100 (0.0e+00)   PASS
+   Grim    0.099989 (0.0e+00)   0.009999 (0.0e+00)   0.001000 (0.0e+00)   PASS
+   19079   0.100143 (3.9e-09)   0.010194 (9.2e-09)   0.001199 (9.9e-09)   PASS
+   19087   0.100143 (0.0e+00)   0.010194 (0.0e+00)   0.001199 (0.0e+00)   PASS
+   20103   0.100143 (3.9e-09)   0.010194 (9.2e-09)   0.001199 (9.9e-09)   PASS
+   20111   0.100143 (0.0e+00)   0.010194 (0.0e+00)   0.001199 (0.0e+00)   PASS
+   23175   0.100160 (0.0e+00)   0.010196 (0.0e+00)   0.001200 (0.0e+00)   PASS
+   23183   0.100160 (0.0e+00)   0.010196 (0.0e+00)   0.001200 (0.0e+00)   PASS
+   24199   0.100160 (0.0e+00)   0.010196 (0.0e+00)   0.001200 (0.0e+00)   PASS
+   24207   0.100160 (0.0e+00)   0.010196 (0.0e+00)   0.001200 (0.0e+00)   PASS
+where T < S (the wedge S): ALLC, started cooperatively, is never behind any co-player, at every delta and eps < 1/2:
+   delta = 0.9     max relative payoff of a co-player at eps = 0, 1e-4, 0.1, 0.4: 0.0e+00  0.0e+00  0.0e+00  0.0e+00   PASS
+   delta = 0.99    max relative payoff of a co-player at eps = 0, 1e-4, 0.1, 0.4: 0.0e+00  0.0e+00  0.0e+00  0.0e+00   PASS
+   delta = 0.999   max relative payoff of a co-player at eps = 0, 1e-4, 0.1, 0.4: 0.0e+00  0.0e+00  0.0e+00  0.0e+00   PASS
+ALL PASS

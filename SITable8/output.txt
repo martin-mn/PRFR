@@ -1,0 +1,71 @@
+SI Table 8, computed (exact, eps -> 0; regions closed, ties admitted; efficient and class off the two lines)
+
+      name  efficient stable                   rival class
+CCCC  ALLC  u+v<1    v<=0                     T<S   partner on v<=0 & u+v<1; friendly rival on S
+CCCD        u+v<1    v<=0                     T<S   partner on v<=0 & u+v<1; friendly rival on S
+CDDC  WSLS  u+v<1    u<=1 & v<=1              --    partner on u<=1 & v<=1 & u+v<1
+CDCD  TFT   --       --                       both  rival (fair)
+CDDD  Grim  --       u<=-1/2                  T>S   rival
+DDDD  ALLD  --       u<=0                     T>S   rival
+DDCD        --       u+v=-1 & u<=-1           T>S   rival
+CDCC        --       u+v=1 & u>=0             T<S   rival
+DDDC        --       u<=1/2 & v<=0            --    none
+DCCC        --       u<=0 & v<=-1/2           --    none
+DCCD        --       u<=-1 & v<=-1            --    none
+DCDD        --       v=3u-1 & u>=0            --    none
+DDCC        --       u=0 & v=0                --    none
+DCDC        --       u=1/2 & v=-1/2           --    none
+CCDD        --       u=0 & v=0                --    none
+CCDC        --       u=3v+1 & v>=0            --    none
+
+Comparison with SI Table 8 as printed (the copy in this script): 80 of 80 cells agree
+
+Statements of SI section 10 (Memory one, for contrast) and of section 5 that rest on the table:
+  ok    self play: w_CD = w_DC is exactly 1/4 at every eps if the answers at CD and DC differ, exactly eps(1-eps) if they agree
+  ok    no binary memory-one strategy is efficient above the switch line
+  ok    below the switch line exactly CCCC, CDDC and CCCD are efficient
+  ok    on the switch line the efficient ones are CCCC, CCCD, CDDC, CCDC, CDCC; CCDC and CDCC with self-play weights (1/2,1/4,1/4,0)
+  ok    on the switch line the friendly rivals are none where T>S and CCCC, CCCD, CDCC where T<S
+  ok    on the line T=S every efficient strategy is a friendly rival: three below the switch line, none above
+  ok    rival for T>S iff it defects at CD and at DD: DDDD, CDDD, DDCD, CDCD
+  ok    rival for T<S iff it cooperates at CC and at DC: CCCC, CCCD, CDCC, CDCD
+  ok    tit-for-tat is the only fair strategy (w_CD = w_DC against all 16)
+  ok    at memory one rivalry coincides with Murase and Baek's defensibility (both signs of T-S)
+  ok    friendly rivals on W, S, E, N: 0, 2, 0, 0 (CCCC and CCCD, in S)
+  ok    win-stay, lose-shift is a partner wherever u<=1, v<=1 and u+v<1, and a rival in neither direction
+  ok    eight of the sixteen are stable on a two-dimensional set: CCCC CCCD CDDC CDDD DDDD DDDC DCCC DCCD
+  ok    0 to 8 of these eight at a game: all eight at (u,v)=(-2,-2), none at (2,2)
+  ok    including the half-lines and the single games, at most 8 of the sixteen are stable at any game
+  ok    four more are stable only on half-lines: DCDD v=3u-1, u>=0; CCDC u=3v+1, v>=0; DDCD u+v=-1, u<=-1; CDCC u+v=1, u>=0
+  ok    the remaining four: tit-for-tat is stable at no game; DDCC and CCDD only at the single game (u,v)=(0,0), DCDC only at (u,v)=(1/2,-1/2), each with ties
+  ok    off the half-lines the only equilibrium in the Snowdrift quadrant is WSLS, on the unit square
+  ok    of the half-lines those of DCDD and CCDC reach the Snowdrift games outside the unit square
+  ok    off the switch line the partners are CCCC, CCCD and CDDC; none above the switch line, none with v>1
+  ok    WSLS is a partner on the donation game exactly when b>=2c, with a tie (ALLD earns R against it) at b=2c
+  ok    off the half-lines the classification changes only across eleven lines: u=-1,-1/2,0,1/2,1; v=-1,-1/2,0,1; u+v=1; u-v=1
+  ok    they cut the plane into 45 faces with twelve sets of non-empty atoms (the cases of Figure 1b)
+  ok    a game has at most five atoms, 000 and 001 at every game and 111 exactly on S
+  ok    on every face the atom 101 is empty (the theorem)
+
+wrote sitable8.csv (16 rows) and m1_pairs.csv (256 rows)
+
+The sixteen against all 65536 binary memory-two co-players (numpy, leading-order GTH, tolerance 1e-9):
+  DDDD ALLD  vs 65536: stable u<=0                   rival T>S   same as vs 16
+  CDDD Grim  vs 65536: stable u<=-1/2                rival T>S   same as vs 16
+  DCDD       vs 65536: stable v=3u-1 & u>=0          rival --    same as vs 16
+  CCDD       vs 65536: stable u=0 & v=0              rival --    same as vs 16
+  DDCD       vs 65536: stable u+v=-1 & u<=-1         rival T>S   same as vs 16
+  CDCD TFT   vs 65536: stable --                     rival both  same as vs 16
+  DCCD       vs 65536: stable u<=-1 & v<=-1          rival --    same as vs 16
+  CCCD       vs 65536: stable v<=0                   rival T<S   same as vs 16
+  DDDC       vs 65536: stable u<=1/2 & v<=0          rival --    same as vs 16
+  CDDC WSLS  vs 65536: stable u<=1 & v<=1            rival --    same as vs 16
+  DCDC       vs 65536: stable u=1/2 & v=-1/2         rival --    same as vs 16
+  CCDC       vs 65536: stable u=3v+1 & v>=0          rival --    same as vs 16
+  DDCC       vs 65536: stable u=0 & v=0              rival --    same as vs 16
+  CDCC       vs 65536: stable u+v=1 & u>=0           rival T<S   same as vs 16
+  DCCC       vs 65536: stable u<=0 & v<=-1/2         rival --    same as vs 16
+  CCCC ALLC  vs 65536: stable v<=0                   rival T<S   same as vs 16
+  the stability regions and rival signs are the same as against the 16 memory-one co-players, for all sixteen
+
+0 cell(s) differ from the printed table; 0 statement check(s) failed

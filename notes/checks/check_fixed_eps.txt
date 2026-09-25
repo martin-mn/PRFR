@@ -1,0 +1,19 @@
+deficit against ALLD at eps = 0.01, in units of eps (T - S):
+   TFT 0.9800
+   19079 CCCDDDDCDCDCDDCD 1.9217
+   19087 CCCCDDDCDCDCDDCD 1.9310
+   20103 CCCDDDDCDCCCDDCD 1.9216
+   20111 CCCCDDDCDCCCDDCD 1.9309
+   23175 CCCDDDDCDCDCCDCD 1.9403
+   23183 CCCCDDDCDCDCCDCD 1.9315
+   24199 CCCDDDDCDCCCCDCD 1.9402
+   24207 CCCCDDDCDCCCCDCD 1.9315
+PASS  tit-for-tat is behind ALLD by 0.98 eps (T - S) per round (computed 0.9800)
+PASS  the eight are behind by about 1.9 eps (T - S) (computed 1.922 to 1.940)
+PASS  every strategy other than ALLD is strictly behind ALLD (smallest deficit 9.9e-07 eps(T-S), at 1)
+at (u, v) = (-0.5, 2), eps = 0.01: ALLC-ALLD average 1.23515; best self-play 1.23076 by 46299 CCDCCDCCDDCDCCDC (w_CD + w_DC = 0.962); (S + T)/2 = 1.250
+PASS  the pair ALLC-ALLD averages more than every self-play
+PASS  the best self-play is an alternator's
+at (u, v) = (-1, 1), eps = 0.01: best self-plays 65535 0.990000, 32767 0.990000, 57343 0.989999
+PASS  ALLC has the highest self-play of the 65536 (partial check)
+ALL PASS

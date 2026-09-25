@@ -1,0 +1,17 @@
+PASS  22663 = 1110000100011010, 23175 = 1110000101011010
+PASS  they differ only at position 9, the state (DC, CD)
+PASS  32907 = 1101000100000001
+PASS  0 co-players finish ahead of 23175 (the notes: 0)
+PASS  8759 co-players finish ahead of 22663 (the notes: 8759)
+PASS  9253 co-players finish ahead of 32907 (the notes: 9253)
+PASS  at (-3.21, 2.29): 264 co-players ahead of 22663 earn (2T + S + P)/4 = 0.8425, e.g. 34176 DDDDDDDCCDCDDDDC
+PASS  22663 is stable there: best co-player 1.000000, self-play 0.999999 = R
+PASS  no co-player ahead of 22663 earns R (the best of them 0.9370)
+PASS  at (-0.38, 0.54): ALLD earns 0.7700 = T/2 against 32907, which earns -0.1900 = S/2
+PASS  32907 is stable there: best co-player 1.000000, self-play 1.000000
+PASS  no co-player ahead of 32907 earns R (the best of them 0.8467)
+PASS  at the sampled game (-0.377, 0.536) the most abundant strategy of the N = 1000 run is 32907 (data/runs/m2_N1000.csv), a partner there (stable, self-play R)
+      self-play of 22663 at eps = 1e-4, (u, v) = (-3.21, 2.29): R - 7.59 eps
+      self-play of 23175 at eps = 1e-4, (u, v) = (-3.21, 2.29): R - 9.50 eps
+PASS  R - 7.6 eps is 22663's self-play and R - 9.5 eps the friendly rival 23175's
+ALL PASS

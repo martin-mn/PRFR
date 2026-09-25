@@ -1,0 +1,39 @@
+# The Wright-Fisher runs of the paper: parameters and random seeds, one row per run, read from the kit files by
+# mkseeds.py (do not edit by hand).  Seed of replicate r (1..replicates) of task isl: seed_base + 10*(isl - 1) + r.
+# Columns:
+#   run                  run id used in this repository
+#   memory               1: the 16 binary memory-one strategies; 2: the 65536 binary memory-two strategies
+#   kit, source, slurm   the kit directory under kits/, its Fortran main program, the production Slurm script
+#   ie                   the error-rate slot of the task decode (ie = mod(isl-1,3)+1): eps = epsv(ie) of the source
+#   N, beta, mu, eps     population size, selection strength, mutation probability, execution-error rate
+#   nu                   the probability that a mutation is global (uniform over the whole space); otherwise one of
+#                        the 16 positions of the strategy is flipped (kit lm only; nu = 1 everywhere else)
+#   generations          generations per replicate (itend); the second half is sampled: sampled_generations
+#   replicates           independent replicates per game (one task = one game = all replicates)
+#   isl_first..isl_last  the Slurm task indices of the 512 games, step isl_step, in game order ipt = 0..511
+#   seed_base            s0 (parameter iseedb of the source, or of compile.sh for kit lm)
+#   seed_min, seed_max   the smallest and the largest seed the run used
+#   display_items        the figures and tables of the paper that the run feeds
+#   note                 what the run is
+run,memory,kit,source,slurm,ie,N,beta,mu,eps,nu,generations,replicates,sampled_generations,isl_first,isl_last,isl_step,seed_base,seed_min,seed_max,display_items,note
+m1_N1000,1,mw,kits/mw/sf1.f,prod1.slurm,3,1000,100.0,0.01,0.0001,1.0,10000000,10,5000000,3,1536,3,10000000,10000021,10015360,Fig 4a-c; Fig 5a-c; SI Fig 2i-p; SI Fig 6c; SI Fig 7c,memory one: large population
+m1_N100,1,mw,kits/mw/sf2.f,prod2.slurm,3,100,3.0,0.0001,0.0001,1.0,100000000,10,50000000,3,1536,3,11000000,11000021,11015360,SI Fig 2a-h; SI Fig 4a-c; SI Fig 5a-c; SI Fig 6b; SI Fig 7b,memory one: small population
+m2_N1000,2,dw1,kits/dw1/sf.f,prod_vor_e4.slurm,3,1000,100.0,0.01,0.0001,1.0,10000000,10,5000000,1368,2901,3,8000000,8013671,8029010,Fig 4d-f; Fig 5d-f; SI Fig 3i-p; SI Fig 6f; SI Fig 7f; SI Fig 8h/p/x (corner N=1000 beta=100 mu=1e-2); SI Fig 9d-f; SI Fig 12j-l (nu=1); SI Tables 6 and 7,memory two: large population (F1)
+m2_N100,2,dw2,kits/dw2/sf.f,prod_1e8.slurm,3,100,3.0,0.0001,0.0001,1.0,100000000,10,50000000,1368,2901,3,9000000,9013671,9029010,SI Fig 3a-h; SI Fig 4d-f; SI Fig 5d-f; SI Fig 6e; SI Fig 7e; SI Fig 8a/i/q (corner N=100 beta=3 mu=1e-4); SI Fig 10d-f; SI Tables 6 and 7,memory two: small population (F2)
+f1,2,f1,kits/f1/sf.f,prod_e4.slurm,3,1000,100.0,0.01,0.0001,1.0,10000000,10,5000000,1368,2901,3,8000000,8013671,8029010,SI Fig 11d-f (per-replicate atom shares),bit-for-bit regeneration of m2_N1000 with the per-replicate count file (same seeds)
+f2,2,f2,kits/f2/sf.f,prod_e4.slurm,3,100,3.0,0.0001,0.0001,1.0,100000000,10,50000000,1368,2901,3,9000000,9013671,9029010,SI Fig 11a-c (per-replicate atom shares),bit-for-bit regeneration of m2_N100 with the per-replicate count file (same seeds)
+dw3,2,dw3,kits/dw3/sf.f,prod_1e7.slurm,3,1000,100.0,0.0001,0.0001,1.0,10000000,10,5000000,1368,2901,3,10000000,10013671,10029010,SI Fig 8g/o/w (corner N=1000 beta=100 mu=1e-4); SI Table 7a,cube corner
+dw4,2,dw4,kits/dw4/sf.f,prod_1e7.slurm,3,1000,3.0,0.01,0.0001,1.0,10000000,10,5000000,1368,2901,3,11000000,11013671,11029010,SI Fig 8d/l/t (corner N=1000 beta=3 mu=1e-2); SI Table 7a,cube corner
+c1,2,c1,kits/c1/sf.f,prod_e4.slurm,3,100,100.0,0.01,0.0001,1.0,10000000,10,5000000,1368,2901,3,22000000,22013671,22029010,SI Fig 8f/n/v (corner N=100 beta=100 mu=1e-2); SI Table 7a,cube corner
+c2,2,c2,kits/c2/sf.f,prod_e4.slurm,3,100,3.0,0.01,0.0001,1.0,10000000,10,5000000,1368,2901,3,23000000,23013671,23029010,SI Fig 8b/j/r (corner N=100 beta=3 mu=1e-2); SI Table 7a,cube corner
+c3,2,c3,kits/c3/sf.f,prod_e4.slurm,3,100,100.0,0.0001,0.0001,1.0,100000000,10,50000000,1368,2901,3,24000000,24013671,24029010,SI Fig 8e/m/u (corner N=100 beta=100 mu=1e-4); SI Table 7a,cube corner
+c4,2,c4,kits/c4/sf.f,prod_e4.slurm,3,1000,3.0,0.0001,0.0001,1.0,10000000,10,5000000,1368,2901,3,25000000,25013671,25029010,SI Fig 8c/k/s (corner N=1000 beta=3 mu=1e-4); SI Table 7a,cube corner
+eh_e3,2,eh,kits/eh/sf.f,prod_e3.slurm,2,1000,100.0,0.01,0.001,1.0,10000000,10,5000000,1367,2900,3,20000000,20013661,20029000,SI Fig 9a-c; SI Table 7b,error-rate series: large population
+eh_e5,2,eh,kits/eh/sf.f,prod_e5.slurm,1,1000,100.0,0.01,1e-05,1.0,10000000,10,5000000,1366,2899,3,20000000,20013651,20028990,SI Fig 9g-i; SI Table 7b,error-rate series: large population
+el_e3,2,el,kits/el/sf.f,prod_e3.slurm,2,100,3.0,0.0001,0.001,1.0,100000000,10,50000000,1367,2900,3,21000000,21013661,21029000,SI Fig 10a-c; SI Table 7b,error-rate series: small population
+el_e5,2,el,kits/el/sf.f,prod_e5.slurm,1,100,3.0,0.0001,1e-05,1.0,100000000,10,50000000,1366,2899,3,21000000,21013651,21028990,SI Fig 10g-i; SI Table 7b,error-rate series: small population
+lm_g0,2,lm,kits/lm/sf.f,lm.slurm,3,1000,100.0,0.01,0.0001,0.0,10000000,10,5000000,1368,2901,3,30000000,30013671,30029010,SI Fig 12a-c (nu=0); SI Table 7c,mixed mutation kernel
+lm_g01,2,lm,kits/lm/sf.f,lm.slurm,3,1000,100.0,0.01,0.0001,0.1,10000000,10,5000000,1368,2901,3,31000000,31013671,31029010,SI Fig 12d-f (nu=0.1); SI Table 7c,mixed mutation kernel
+lm_g05,2,lm,kits/lm/sf.f,lm.slurm,3,1000,100.0,0.01,0.0001,0.5,10000000,10,5000000,1368,2901,3,32000000,32013671,32029010,SI Fig 12g-i (nu=0.5); SI Table 7c,mixed mutation kernel
+m1_N1000_ctrl,1,mw,kits/mw/sf1s.f,prod1s.slurm,3,1000,100.0,0.01,0.0001,1.0,100000,10,50000,3,1536,3,12000000,12000021,12015360,none,convergence control of m1_N1000 (run length divided by 100); not in the paper
+m1_N100_ctrl,1,mw,kits/mw/sf2s.f,prod2s.slurm,3,100,3.0,0.0001,0.0001,1.0,1000000,10,500000,3,1536,3,13000000,13000021,13015360,none,convergence control of m1_N100 (run length divided by 100); not in the paper

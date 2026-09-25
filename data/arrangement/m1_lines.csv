@@ -1,0 +1,14 @@
+# The 11 lines of the memory-one arrangement (m1atoms.py): a u + b v + c = 0, integers with gcd 1.  Across no other
+# line does the atom of any of the 16 strategies change on an open set of games.
+a,b,c
+0,1,-1
+0,1,0
+0,1,1
+0,2,1
+1,-1,-1
+1,0,-1
+1,0,0
+1,0,1
+1,1,-1
+2,0,-1
+2,0,1
