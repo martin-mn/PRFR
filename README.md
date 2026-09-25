@@ -6,6 +6,9 @@ Supplementary Information.
 Martin A. Nowak, Department of Mathematics and Department of Organismic and
 Evolutionary Biology, Harvard University.
 
+Archived on Zenodo: release 1.0.0, [doi:10.5281/zenodo.22964493](https://doi.org/10.5281/zenodo.22964493)
+(all versions: [doi:10.5281/zenodo.22964492](https://doi.org/10.5281/zenodo.22964492)). MIT licence.
+
 ## What is computed
 
 A strategy of a repeated game is *efficient* if a population using it earns the

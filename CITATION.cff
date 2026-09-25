@@ -3,8 +3,17 @@ message: "If you use this code or data, please cite the paper and this archive."
 type: software
 title: "Code and data for: Partners, rivals, and friendly rivals in the evolution of direct reciprocity"
 version: 1.0.0
+doi: 10.5281/zenodo.22964493
+date-released: 2026-09-25
 license: MIT
 repository-code: "https://github.com/martin-mn/PRFR"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22964493
+    description: "Zenodo archive of release 1.0.0"
+  - type: doi
+    value: 10.5281/zenodo.22964492
+    description: "Zenodo concept DOI: all versions"
 authors:
   - family-names: Nowak
     given-names: Martin A.
