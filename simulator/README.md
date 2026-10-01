@@ -3,8 +3,9 @@
 The evolutionary maps of the paper (main text Figures 4 and 5, SI Figures 2–12, SI Tables 6 and 7) come from one
 Fortran 77 program, run on a cluster as Slurm arrays with one task per game. This folder holds that program in every
 version that produced a map (the *kits*, byte-identical to what ran), the parameters and random seeds of every run, a
-local smoke test, and the atom table the packing step needs. The process is the one of the Methods, "The
-Wright–Fisher process with pairwise comparison"; below, each of its statements is matched to the code.
+local smoke test, and the atom table the packing step needs. The process is the one of the SI Methods, "The
+Wright–Fisher process with pairwise comparison" (summarised in the main-text Methods); below, each of its statements
+is matched to the code.
 
 The reduced output of the runs is not here: the per-game and per-replicate tables of the four main runs are in
 `../data/runs/`, those of the fifteen memory-two robustness runs in `../data/robustness/`. The full per-strategy

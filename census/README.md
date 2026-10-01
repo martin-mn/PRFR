@@ -22,7 +22,7 @@ So ALLC = 65535, ALLD = 0, TFT = 3855 and WSLS = 61455. The genome of the paper 
 | `Makefile` | `make` builds `pairs` and `pairsq`. `make selftest` compares 10⁵ random pairs exact against double and prints one pair |
 | `defensible.py` | Murase and Baek's defensibility of all 65536 strategies, by Floyd–Warshall on the 16-node graph of each strategy, for T>S and for T<S (about 1 s) |
 | `reduce.py` | turns the raw outputs of the four passes into the tables of `../data/census/`: `python3 reduce.py <outdir>` |
-| `check.py` | recomputes the census counts of SI §6 and the Methods from `../data/census/` and compares them with the paper. It also compares the stable strategies at (−2,2) with the exact arrangement of the companion work in `../data/arrangement/`, strategy by strategy (exit status 1 on a mismatch) |
+| `check.py` | recomputes the census counts of SI §6 and the SI Methods from `../data/census/` and compares them with the paper. It also compares the stable strategies at (−2,2) with the exact arrangement of the companion work in `../data/arrangement/`, strategy by strategy (exit status 1 on a mismatch) |
 | `censuslib.py` | the loader of `../data/census/census.csv` that the other folders use, and the conventions: masks, wedges, genomes, mirror images, named strategies |
 | `cannon/` | the Cannon kit of the exact run: `compile.sh`, `task.sh`, `probe.slurm`, `full.slurm`, its `README.md` and `RESULT.md` |
 

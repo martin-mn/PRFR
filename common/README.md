@@ -3,7 +3,9 @@
 The pieces that several display items share, taken from the original figure scripts
 (`FinalFigures/atomshares.py`, `atomcounts.py`, `eulerlib.py`, `fig4.py`, `m1atoms.py`, `wfdata.py`, `wfrep.py`,
 `PartnersRivals/Figures/disklib.py`, `DiskM2WF/Opt/vor.py`, `disk.py`). The code is moved unchanged. Only the data
-loading was replaced, and the output path became an argument. The package covers:
+loading was replaced, and the output path became an argument. On 2026-09-30 `counts.py` and `furniture.py` gained the
+page type of Figures 2 and 3 (`ty`, `WIDE`, `TYPE`, `page_type`); without it every figure is drawn as in release
+1.0.0. The package covers:
 
 - the 512 sampled games, their Voronoi cells and their ids;
 - the disk map, and the drawing of the special lines and of the rim names;
@@ -197,7 +199,8 @@ These are the layout constants of `atomshares.py`, in inches unless stated other
 
 | function | signature | does |
 |---|---|---|
-| `furniture(ax, letter, title, halo=True)` | axes, str, str | draws everything on a disk panel except the cells. That is the two diameters, `CONICS` (with the T = S halo if `halo`), the guide circles at \|u\|, \|v\| = 1, 2, 4, 10 with their ticks and labels, `$u$` and `$v$`, the bold panel `letter` at the top left, the head `title` at the top centre (`""` for none), and the four game names on the rim. It sets xlim (−LIM, LIM), ylim (−(LIM+EXTB), LIM+EXTT), equal aspect and axis off. Draw the cells first, as a `PolyCollection` at zorder 1 with `linewidths=0.3`, edgecolors = facecolors and antialiased; the furniture draws at zorder 5–12. `halo=False` reproduces the count maps (atomcounts), `halo=True` the sunflower maps (atomshares) |
+| `furniture(ax, letter, title, halo=True, ty=None)` | axes, str, str | draws everything on a disk panel except the cells. That is the two diameters, `CONICS` (with the T = S halo if `halo`), the guide circles at \|u\|, \|v\| = 1, 2, 4, 10 with their ticks and labels, `$u$` and `$v$`, the bold panel `letter` at the top left, the head `title` at the top centre (`""` for none), and the four game names on the rim. It sets xlim (−LIM, LIM), ylim (−(LIM+EXTB), LIM+EXTT), equal aspect and axis off. Draw the cells first, as a `PolyCollection` at zorder 1 with `linewidths=0.3`, edgecolors = facecolors and antialiased; the furniture draws at zorder 5–12. `halo=False` reproduces the count maps (atomcounts), `halo=True` the sunflower maps (atomshares). `ty` changes the type: a dict with some of the entries of `TYPE` (below). `None` draws the panel as published |
+| `TYPE` | dict | the type of `furniture` as published: the sizes (pt) of the guide labels, u and v, the letter, the head and the rim names; the offsets (data units) of the guide labels and of the head; the labels of the u axis set above it; the alignment of v; and the head's layout. With `head_x=None`, the head is centred on the letter's line, as published. With a number, the head is left-aligned after the letter on its baseline, one line per line of `title`, with a hanging indent. The rim gap is set separately for the upper and the lower half. `common.counts.page_type()["furniture"]` is the type of Figures 2 and 3 |
 | `disk_legend(ax)` | axes | the seven `WINCOL` swatches with bold codes in one row centred under the disk, at y = `YL`, as under panel h of SI Figures 2 and 3. Returns the 7 code `Text`s |
 | `disk_legend_check(ax, legend, renderer)` | | asserts that no code runs into the next swatch. Call it after `fig.canvas.draw()` |
 
@@ -214,16 +217,18 @@ furniture.furniture(ax, "a", "head")
 
 | name | signature | returns / does |
 |---|---|---|
-| `atom_scale(vals, weights)` | (n,) values, (n,) areas | `(cmap, norm, ticks, labels, discrete)`. If the positive values take a single level: one magma band (0.75). If they take at most 12 levels: `discrete_bands(..., by="rank")`, labelled at every level. Otherwise: `equalised` (an area-weighted equal-area magma ramp of up to 256 bands, which prints `bar atom: ...`). `cmap.set_under(GREY)`, so zero is grey |
+| `atom_scale(vals, weights, mingap=0.052)` | (n,) values, (n,) areas | `(cmap, norm, ticks, labels, discrete)`. If the positive values take a single level: one magma band (0.75). If they take at most 12 levels: `discrete_bands(..., by="rank")`, labelled at every level. Otherwise: `equalised` (an area-weighted equal-area magma ramp of up to 256 bands, which prints `bar atom: ...`). `cmap.set_under(GREY)`, so zero is grey. `mingap` is passed to `thin`: it sets how closely the labelled ticks of a ramp may sit |
 | `discrete_bands(vals, weights, cmap="magma", vmin=None, vmax=None, minshare=0.010, group=str, by="value", share=True)` | | `(ListedColormap, BoundaryNorm, ticks, ticklabels, receipt)` (disklib, verbatim) |
-| `equalised(vals, weights, cmap="magma", name="")` | | `(ListedColormap, BoundaryNorm, ticks)` |
+| `equalised(vals, weights, cmap="magma", name="", mingap=0.052)` | | `(ListedColormap, BoundaryNorm, ticks)` |
 | `ladder(lo, hi)`, `thin(ticks, norm, nbands, mingap=0.052)`, `grp(x)`, `NB=256` | | helpers of the scale |
 | constants | | `PW, LIM, EXTT, EXTB, PH` as in furniture; `CBW` 0.22, `CBGAP` 0.26, `CBLAB` 1.30 (the vertical bar); `COLW = PW+CBGAP+CBW+CBLAB` = 6.08; `COLGAP` 0.30, `ROWGAP` 0.25; `ML, MR, MB, MT` 0.30, 0.20, 0.25, 0.25; `NCOL, NROW` 4, 2; `FIG_W, FIG_H`; `DPU, SC, NM_FS, FS` as in furniture; **`CBH = 0.8*PW` = 3.44, the vertical bar height (not furniture.CBH)**; `ATOM_ORDER = ORDER`; `ATOM_NAME = NAME` |
 | `cellxy(row, col)` | | lower-left corner (inches) of a cell of the default 2×4 sheet |
-| `sheet(nrow, ncol=4, labw=0.0)` | | `(fig, W, H, xy)`. `xy(row, col)` gives the lower-left corner in inches of a disk; `labw` is a left column for row labels (Figures 2 and 3 use 0.75) |
-| `panel(fig, W, H, x, y, FACES, DA, vals, letter, head, sub, barlabel="Number of strategies")` | `FACES`: list of disk polygons; `DA`: (nf,) areas; `vals`: (nf,) counts | one count disk at (x, y) inches, grey where `vals == 0`, `furniture(halo=False)`, the `sub` line under the disk, and the vertical colour bar to its right. Returns `dict(min, max, levels, zshare)` |
-| `rowlabel(fig, W, H, x, y, text)` | | a rotated label 0.45 in to the left of the disk at (x, y) |
-| `finish(fig, W, H, out)` | `out` a `.pdf` path | text checks (as `check_sheet(xticks=False)`), then saves `out` and `out` with `.png` at 150 dpi, closes the figure and prints the size |
+| `sheet(nrow, ncol=4, labw=0.0, ty=None)` | | `(fig, W, H, xy)`. `xy(row, col)` gives the lower-left corner in inches of a disk; `labw` is a left column for row labels (Figures 2 and 3 use 0.75). With `ty` from `page_type()`, its gaps, margins and label column are used |
+| `panel(fig, W, H, x, y, FACES, DA, vals, letter, head, sub, barlabel="Number of strategies", ty=None)` | `FACES`: list of disk polygons; `DA`: (nf,) areas; `vals`: (nf,) counts | one count disk at (x, y) inches, grey where `vals == 0`, `furniture(halo=False)`, the `sub` line under the disk, and the vertical colour bar to its right. Returns `dict(min, max, levels, zshare)` |
+| `rowlabel(fig, W, H, x, y, text, ty=None)` | | a rotated label 0.45 in to the left of the disk at (x, y) (`page_type()`: its offset and size) |
+| `finish(fig, W, H, out)` | `out` a `.pdf` path | text checks, then saves `out` and `out` with `.png` at 150 dpi, closes the figure and prints the size. The checks are those of `check_sheet(xticks=False)`, with a head's va `"bottom"` or `"baseline"`. Two more checks follow: no text of one axes (a panel, a bar) or row label overlaps a text of another, and no text of a disk but the v-axis labels overlaps a rim glyph |
+| `WIDE` | dict | the type of the sheets as in release 1.0.0 (`ty=None`): the font sizes, the line under the disk, the bar (height, triangle, the 0), `mingap`, the room (inches) and the row-label offset |
+| `page_type(width=PAGE_W, ncol=4)` | `width` in inches | the type of a sheet to be printed `width` inches wide (`PAGE_W` = 6.89, the full text width, 17.5 cm). The disks, lines and bar widths keep their sizes; the bars are 0.85 PW tall and their triangle 0.14 of the bar. The type is set so that each text prints at the size in `PAGE_PT`, and the room at `PAGE_IN`. The scale is solved from the width: `s = (width - B) / A`, with A = ncol (PW + CBGAP + CBW) and B the printed room; it is returned as `ty["s"]`. Figures 2 and 3 use it, unless run with `--wide` |
 
 SI Figures 6 and 7 (figstrict) used `atom_scale` and the constants `CBW, CBGAP, CBLAB, CBH` from here.
 
@@ -294,7 +299,8 @@ likewise not included.
 3. Whole figures were redrawn from a fresh copy of `common/` and `data/games/`, rasterised with `pdftoppm` next to the
    published PDFs and compared pixelwise:
    - Figure 4 and SI Figure 4 were drawn by `wfsheet.draw` from the runs' arrays.
-   - Figure 3 was drawn by `counts.sheet/panel/rowlabel/finish` from the arrangement npz files.
+   - Figure 3 was drawn by `counts.sheet/panel/rowlabel/finish` from the arrangement npz files (with `ty=None`, the
+     sheet of release 1.0.0).
    - SI Figures 2 and 3 were drawn by `furniture.furniture`, `disk_legend` and `check_sheet`.
 
    All five are **identical**: max |diff| 0 at 80 dpi (Figure 4 also at 150 dpi).

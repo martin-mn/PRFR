@@ -21,7 +21,7 @@ Floats are written with Python's `repr`, so each one reads back as the same doub
 ## The runs
 
 All fifteen runs use the 65536 binary memory-two strategies on the 512 sampled games, with the Wright–Fisher process
-with pairwise comparison of the Methods. Each has 10 independent replicates per game, and the second half of each
+with pairwise comparison of the SI Methods. Each has 10 independent replicates per game, and the second half of each
 replicate is sampled. Mutants are drawn uniformly from all 65536 strategies (ν = 1) unless stated.
 
 | run | N | β | μ | ε | ν | generations | seed base | Cannon job | in the paper |
@@ -81,7 +81,7 @@ replicate, its atom and its share.
 - `R_abc`, `E` in the replicate tables: the same quantities for a single replicate, to the 8 decimals of the
   simulator's `.rep`. The ten replicates of a game average to the pooled `S_abc` within 8e-9, and to the pooled `E`
   within 4e-9.
-- `top`: the replicate's single most abundant strategy, by its integer code 0..65535 of the Methods (the genome read
+- `top`: the replicate's single most abundant strategy, by its integer code 0..65535 of the SI Methods (the genome read
   as a binary number, ALLD = 0, ALLC = 65535). `top_atom`: that strategy's atom at the game, as the code
   4·efficient + 2·stable + competitive. For example, 7 is 111 (a friendly rival) and 4 is 100.
 

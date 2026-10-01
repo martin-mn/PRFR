@@ -10,7 +10,7 @@ array of task indices.  Only the list of runs and the display items each one fee
     python3 mkseeds.py            # rewrites SEEDS.csv and seeds_by_game.csv next to this script, prints a summary
     python3 mkseeds.py --check    # rewrites nothing; fails if the two files differ from what the kits say
 
-The seed rule (Methods of the paper; every kit's sf.f, `iseed=iseedb+(isl-1)*nper+irep`):
+The seed rule (SI Methods of the paper; every kit's sf.f, `iseed=iseedb+(isl-1)*nper+irep`):
 
     seed of replicate r (r = 1..10) of task k  =  s0 + 10 (k - 1) + r
 

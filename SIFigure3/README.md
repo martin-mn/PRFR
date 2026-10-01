@@ -47,4 +47,4 @@ apart from the `CreationDate` stamp. The two are pixel-identical at 80 and 150 d
 The counts of the most abundant atom are those of SI Table 6. At N = 100: 110 at 364 games, 111 at 89, 000 at 24,
 100 at 15, 011 at 15, 010 at 3 and 001 at 2. At N = 1000: 110 at 323, 111 at 186, 100 at 2 and 011 at 1. The median
 share of the most abundant atom is 0.77 with 30 games decided by less than 0.05 at N = 100, and 0.92 with 1 game at
-N = 1000, as in the Methods.
+N = 1000, as in the SI Methods.

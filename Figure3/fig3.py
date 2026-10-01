@@ -3,6 +3,7 @@
 Figure 3: how many strategies have each property, at every game, for memory one and memory two.
 
     python3 fig3.py             ->  Fig3.pdf / Fig3.png  (here; reads ../data/arrangement/)
+    python3 fig3.py --wide      ->  Fig3_wide.pdf / Fig3_wide.png: the sheet of release 1.0.0, 26.47 x 11.40 in
 
 Two rows of four disks.  Row 1, the 16 binary memory-one strategies (the 45 faces of the exact arrangement of m1atoms.py,
 ../data/arrangement/m1_faces*); row 2, the 65536 binary memory-two strategies (the 22872 faces of the arrangement of
@@ -16,8 +17,12 @@ different strategies that belong to the set somewhere).  The efficient set takes
 one value off the line T = S (memory two 2640, memory one 4), so those panels are two- or one-colour maps by construction.
 Panel letters a-h row by row.
 
-This is FinalFigures/fig3.py of the working tree with only the data loading changed (atomcounts.py is common/counts.py,
-moved unchanged); the drawing is untouched.
+This is FinalFigures/fig3.py of the working tree with its data loading changed (atomcounts.py is common/counts.py)
+and, on 2026-09-30, the page type added.  With --wide the drawing is that of release 1.0.0.  By default the sheet is
+set for the page: the same disks, lines, scales and data, taller colour bars, with the type and its room of
+common.counts.page_type() (Figure 2's), so that printed 6.89 in wide (17.5 cm) its type is 6 pt or larger, apart from
+the guide labels (5.5 pt) and the rim names (5.0 pt); the head of the partners and the line under each disk are set
+on two lines.
 """
 import os
 import sys
@@ -34,6 +39,9 @@ import arrangement                                                 # noqa: E402 
 
 SETS = [("efficient", r"$\mathbf{1{*}{*}}$", [4, 6, 7]), ("stable", r"$\mathbf{{*}1{*}}$", [2, 3, 6, 7]),
         ("competitive", r"$\mathbf{{*}{*}1}$", [1, 3, 7]), ("efficient and stable: partners", r"$\mathbf{11{*}}$", [6, 7])]
+WIDE = "--wide" in sys.argv[1:]
+TY = None if WIDE else C.page_type()                               # the type: as in release 1.0.0, or for the page
+HEAD2 = {"efficient and stable: partners": "efficient and stable:\npartners"}   # for the page: set on two lines
 
 # ------------------------------------------------------------------ memory one: 45 faces, 16 strategies
 D1 = arrangement.m1()                                                           # m1atoms.load()
@@ -57,15 +65,16 @@ assert TOT2[:3] == [10711, 23861, 5230], TOT2
 assert (A2[:, [4, 6, 7]].sum(1) == np.where(A2[:, [4, 6, 7]].sum(1) > 5000, 7639, 3072)).all() and (A2[:, [1, 3, 7]].sum(1) == 2640).all()
 
 # ------------------------------------------------------------------ the sheet: Figure 2's grid with a label column on the left
-fig, W, H, xy = C.sheet(2, 4, labw=0.75)
+fig, W, H, xy = C.sheet(2, 4, labw=0.75, ty=TY)
 letters = iter("abcdefgh")
 for row, (label, FACES, DA, ATOMS, TOT) in enumerate((("Memory-1, 16 strategies", F1, DA1, A1, TOT1),
                                                        ("Memory-2, 65536 strategies", F2, DA2, A2, TOT2))):
     for col, (name, code, atoms) in enumerate(SETS):
         x, y = xy(row, col)
-        st = C.panel(fig, W, H, x, y, FACES, DA, ATOMS[:, atoms].sum(1), next(letters), "%s   %s" % (code, name),
-                     "%d different strategies over the disk" % TOT[col])
+        st = C.panel(fig, W, H, x, y, FACES, DA, ATOMS[:, atoms].sum(1), next(letters),
+                     "%s   %s" % (code, name if WIDE else HEAD2.get(name, name)),
+                     "%d different strategies%sover the disk" % (TOT[col], " " if WIDE else "\n"), ty=TY)
         print("%-27s %-30s %5d strategies somewhere; %5d-%5d per game where present; %4d levels; empty on %5.1f%% of the disk"
               % (label, name, TOT[col], st["min"], st["max"], st["levels"], 100 * st["zshare"]))
-    C.rowlabel(fig, W, H, *xy(row, 0), label)
-C.finish(fig, W, H, os.path.join(HERE, "Fig3.pdf"))
+    C.rowlabel(fig, W, H, *xy(row, 0), label, ty=TY)
+C.finish(fig, W, H, os.path.join(HERE, "Fig3_wide.pdf" if WIDE else "Fig3.pdf"))

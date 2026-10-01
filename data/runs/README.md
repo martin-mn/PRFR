@@ -101,15 +101,16 @@ python3 check_numbers.py
 ```
 
 The script first checks the tables for consistency: the shares add to 1, the sizes add to the size of the space,
-and `P_*`, `abundant` and `enriched` equal their recomputation. It then recomputes 146 numbers that the Abstract,
-Results, Conclusion, Methods, the SI sections "The evolutionary maps" and "Memory one, for contrast", SI Table 6,
-rows 1 and 8 of SI Table 7a, and the legends of Figures 4 and 5 and SI Figures 2 to 5 quote from these four runs.
-Each is printed next to the value in the text, and the exit status is the number that differ. On 2026-09-25 all 146
-agree. Among them:
+and `P_*`, `abundant` and `enriched` equal their recomputation. It then recomputes 134 numbers that the Results, the
+SI Methods, the SI sections "The evolutionary maps" and "Memory one, for contrast", SI Table 6, rows 1 and 8 of SI
+Table 7a, the legend of Figure 4, the legends of SI Figures 2 to 5 and the SI notes to Figures 4 and 5 ("Notes to
+main text Figures 1 to 5") quote from these four runs. Each is printed next to the value in the text, and the exit
+status is the number that differ. On 2026-10-01 all 134 agree (release 1.0.0 checked 146; `../../CHANGELOG.md` says
+which 12 were dropped and why). Among the 134:
 
 - at memory two, N = 1000: 110 is the most abundant atom at 323 games and 111 at 186; 111 is the most enriched atom at
   261 and 110 at 249; the efficiency is below 0.9 at 10 games;
-- at memory one, N = 1000: the efficiency is below 0.9 at 324 games;
+- at memory one, N = 1000: the efficiency exceeds 0.9 at only 188 games (SI Methods);
 - at memory two, N = 1000: the shares on efficient and on stable strategies exceed one half together at 509 games, with means 0.95 and
   0.94, and the competitive share has mean 0.37;
 - at memory one: the atom 110 is the most abundant at 60 games at N = 1000 and 63 at N = 100. At these games it holds

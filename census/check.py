@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""check.py -- the census counts of SI section 6 (and the numbers of the Methods), recomputed from data/census/.
+"""check.py -- the census counts of SI section 6 (and the numbers of the SI Methods), recomputed from data/census/.
 
     python3 check.py            (about 2 s; numpy only)
 

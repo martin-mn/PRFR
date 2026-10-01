@@ -47,7 +47,8 @@ The script was run on a fresh copy of the folders it needs. Its `Fig5.pdf` is by
 apart from the `CreationDate` stamp. The two are pixel-identical at 80 and 150 dpi (`pdftoppm`; max |diff| 0), and
 `Fig5.png` is byte-identical to the original preview.
 
-The printed numbers are those of the Results paragraph "Which properties the population has". At memory two the
+The printed numbers are those of the Results paragraph "Which properties the population has" and, for memory one
+beyond the efficient share (268, 315, 137), of SI §10, "Evolution at memory one". At memory two the
 mean efficient share is 0.954, the mean share on stable strategies 0.943 and the mean competitive share 0.368, and the competitive
 share exceeds one half at 186 games. At memory one the efficient share exceeds one half at 186 games, the share on stable strategies
 at 268 and the competitive share at 315. The joint counts, 509 games for memory two and 137 for memory one, are

@@ -16,7 +16,7 @@ recorded side of every line, and the recorded interior game of each face as well
 Memory one.  The atom counts of every face (m1_faces.csv) must be the tallies of the 16 strategies' codes.  The exact
 rebuild of the memory-one arrangement from scratch is m1atoms.py.
 
-Printed at the end: the counts 23861, 9431, 299, 22069, 8 and 7639 of the Methods, the 27598 faces, the ten and the
+Printed at the end: the counts 23861, 9431, 299, 22069, 8 and 7639 of the SI Methods, the 27598 faces, the ten and the
 twelve cases, the atom totals of SI section 8, and the regions of SI sections 6 and 8 that are exact polygons of
 the arrangement.
 """
@@ -159,7 +159,7 @@ claim(worst < 1e-9, "every drawn vertex lies on its cell's side of all 254 lines
 claim(True, "the recorded interior game of every face lies strictly in its cell")
 
 # ---- the numbers of the paper
-print("\n  the counts of the Methods ('Nash equilibria, partners and atoms') and of SI section 6 (and 8):")
+print("\n  the counts of the SI Methods ('Nash equilibria, partners and atoms') and of SI section 6 (and 8):")
 nopen = int((OPEN[:, [2, 3, 6, 7]].any(1)).sum()); popen = int((OPEN[:, [6, 7]].any(1)).sum())
 claim(nopen == 23861, "23861 strategies are stable on an open set of games")
 claim(popen == 9431, "9431 strategies are partners (efficient and stable) on an open set of games")

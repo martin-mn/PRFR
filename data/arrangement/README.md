@@ -42,7 +42,7 @@ efficient–stable–competitive. Atom 101 is empty everywhere, so the seven cou
 
 **Strategies.** `genotype` is the integer code Σ_j c_j 2^j. `genome` is the sixteen answers c_0 … c_15 (1 = C) at
 the states j = 4 (most recent outcome) + (the outcome before), with CC = 0, CD = 1, DC = 2, DD = 3. ALLC is 65535,
-ALLD is 0. These are the Methods' conventions. The other columns:
+ALLD is 0. These are the conventions of the SI Methods ("Family descriptions"). The other columns:
 
 - `eff_cc`: the strategy's limiting self-play is permanent mutual cooperation. It is efficient where u + v < 1.
 - `eff_alt`: the self-play is perfect alternation. It is efficient where u + v > 1.
@@ -113,7 +113,7 @@ python3 m1atoms.py m2   # about 7 s
 - checks that the 254 lines give exactly 22872 cells, and that the 27598 polygons are bands of them;
 - checks that every drawn vertex, mapped back to the plane, lies on its cell's side of all 254 lines, up to a relative
   2.3e-13, and that every recorded interior game does;
-- prints and asserts the numbers of the Methods and SI §6 (Nash equilibria and partners). 23861 strategies are stable on an open set of games and 9431
+- prints and asserts the numbers of the SI Methods and SI §6 (Nash equilibria and partners). 23861 strategies are stable on an open set of games and 9431
   are partners there. Between 299 and 22069 strategies are stable at a game in the interior of a face, and between 8 and
   7639 are partners;
 - checks two regions. There are 7639 partners, and atom 100 is empty, exactly on the cells with u < 1, v < 0. Where
@@ -127,8 +127,8 @@ For memory one it checks:
 
 - the tallies of the 16 codes, and the twelve cases, of which 7, 11 and 13 are shared with memory two;
 - the 45 faces of the 11 lines, and the numbering of the 19 cases;
-- that the 3 mutual cooperators are all partners exactly where u < 1, v < 0 (legend of Figure 3);
-- that every strategy but tit-for-tat is in 000 somewhere (legend of Figure 2);
+- that the 3 mutual cooperators are all partners exactly where u < 1, v < 0 (SI notes to main text Figure 3);
+- that every strategy but tit-for-tat is in 000 somewhere (SI notes to main text Figure 2);
 - that 8 strategies are stable on an open set, 0 to 8 at a game, and that in the Snowdrift quadrant the only one is
   WSLS, on the unit square (SI §10).
 

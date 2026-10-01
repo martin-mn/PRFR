@@ -15,6 +15,11 @@ __pycache__/
 /Figure1/Fig1.png
 /Figure2/Fig2.pdf
 /Figure3/Fig3.pdf
+# and the sheets of release 1.0.0 that fig2.py --wide and fig3.py --wide draw
+/Figure2/Fig2_wide.pdf
+/Figure2/Fig2_wide.png
+/Figure3/Fig3_wide.pdf
+/Figure3/Fig3_wide.png
 /Figure4/Fig4.png
 /Figure5/Fig5.png
 /SIFigure2/SIFig2.png

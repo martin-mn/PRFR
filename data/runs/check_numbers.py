@@ -8,9 +8,10 @@ folder and compared with the text of the paper.
 First the tables are checked for consistency (the shares add to one, the atom sizes to the size of the space, the
 derived columns P_*, abundant and enriched equal their recomputation from S and N).  Then every quoted number is
 recomputed and printed next to the value in the text, with OK or DIFF; the exit status is the number of DIFFs.
-The place in the paper is given by section: Abstract, Results (main text), Conclusion, Methods, SI section 'The
-evolutionary maps' (SI evol.), SI Table 6, SI Table 7a, SI section 'Memory one, for contrast' (SI m1), and the
-figure legends.  Counts are of the 512 sampled games; a game counts for its most abundant (most enriched) atom.
+The place in the paper is given by section: Results (main text), the Methods of the SI (SI Methods), the SI
+sections 'The evolutionary maps' (SI evol.) and 'Memory one, for contrast' (SI m1), SI Tables 6 and 7a, the legends
+of main text Figure 4 and SI Figures 2 to 5, and the SI paragraph 'Notes to main text Figures 1 to 5' (SI notes).
+Counts are of the 512 sampled games; a game counts for its most abundant (most enriched) atom.
 
 Regions (common.atoms, data/games/games.csv): quadrants PD (u < 0 < v), SD, SH, HA; wedges W (below the switch line
 u + v = 1, T > S), S (below it, T < S), N (above it, T > S), E (above it, T < S).  "Above the switch line" is N or E.
@@ -107,22 +108,12 @@ def main():
         assert (p.argmax(1) == r.T["top"]).all() and (p.max(1) == r.T["maxpi"]).all()
         print("  %-9s the per-strategy counts and atoms give S, N, top and maxpi bit for bit" % cn[:-7])
 
-    print("\nAbstract")
-    check("Abstract", "m2 N=1000: 110 most abundant at", m2.lead("110"), 323)
-    check("Abstract", "m2 N=1000: 111 most abundant at", m2.lead("111"), 186)
-    check("Abstract", "m2 N=1000: 111 most enriched at", m2.lead("111", enriched=True), 261)
-    check("Abstract", "m2 N=1000: efficiency below 0.9 at", int((m2.E < 0.9).sum()), 10)
-    check("Abstract", "m1 N=1000: efficiency below 0.9 at", int((m1.E < 0.9).sum()), 324)
-
     print("\nResults, 'Evolution of memory one' (Figure 4a-c)")
-    check("Results", "m1 N=1000: efficiency below 0.9 at", int((m1.E < 0.9).sum()), 324)
-    check("Results", "m1 N=1000: mean payoff negative at", int((m1.E < 0).sum()), 77)
+    check("SI Methods", "m1 N=1000: mean payoff negative at", int((m1.E < 0).sum()), 77)
     check("Results", "m1 N=1000: 111 most abundant at games of wedge S", "%d/%d" % (m1.lead("111", WS), WS.sum()), "126/126")
     check("Results", "m1 N=1000: 110 most abundant at", m1.lead("110"), 60)
-    order = sorted([c for c in ORDER if m1.lead(c)], key=lambda c: -m1.lead(c))
-    check("Results", "m1 N=1000: the atoms by the number of games they lead", " > ".join(order), "000 > 111 > 001 > 011 > 110")
     sh = PIECE["SH/W"] & (m1.wa == ORDER.index("011"))
-    check("Results", "m1 N=1000: SH with T>S led by 011 whose top strategy is ALLD (0) or Grim (1)",
+    check("SI m1", "m1 N=1000: SH with T>S led by 011 whose top strategy is ALLD (0) or Grim (1)",
           "%d/%d" % (np.isin(m1.T["top"][sh], [0, 1]).sum(), sh.sum()), "%d/%d" % (sh.sum(), sh.sum()))
     wsls = np.isin(codes[:, 9], [6, 7])                                  # WSLS (strategy 9) is a partner, 110 or 111
     check("Results", "m1 N=1000: WSLS a partner, 011 (ALLD, Grim) most abundant, games / of them SH", "%d / %d"
@@ -133,11 +124,11 @@ def main():
     check("Results", "m2 N=1000: 111 most abundant at", m2.lead("111"), 186)
     check("Results", "m2 N=1000: 111 most abundant at games of wedge S", "%d/%d" % (m2.lead("111", WS), WS.sum()), "126/126")
     n111S = sorted(set(m2.N[WS, ORDER.index("111")].tolist()))
-    check("Results", "m2: friendly rivals (N_111) at every game of wedge S", n111S, [1519])
+    check("Results", "m2: friendly rivals (N_111) at every game of wedge S ('Counting the atoms')", n111S, [1519])
     check("Results", "m2 N=1000: 111 most abundant at Harmony games above the switch line", m2.lead("111", PIECE["HA/E"]), 27)
     check("Results", "m2 N=1000: 111 most abundant at PDs above the switch line", m2.lead("111", PIECE["PD/N"]), 14)
     eight = (m2.N[:, ORDER.index("110")] == 0) & (m2.N[:, ORDER.index("111")] == 8)
-    check("Results", "m2: games at which the eight friendly rivals are the only partners", int(eight.sum()), 20)
+    check("SI evol.", "m2: games at which the eight friendly rivals are the only partners", int(eight.sum()), 20)
     check("Results", "m2 N=1000: ... of which 111 is the most abundant atom", m2.lead("111", eight), 19)
     check("Results", "m2 N=1000: efficiency below 0.9 at", int((m2.E < 0.9).sum()), 10)
     print("       (the 10: radii %s; all in %s)" % (", ".join("%.1f" % r for r in np.sort(RAD[m2.E < 0.9])),
@@ -158,11 +149,11 @@ def main():
     check("Results", "m1 N=1000: ... at all of which the share on stable strategies is above 1/2", "%d/%d" % ((m1.P["P_nash"][e5] > 0.5).sum(), e5.sum()), "186/186")
     noeff = sum(m1.N[:, i] for i in atoms.members(atoms.PROPS[0][2])) == 0
     check("Results", "m1: games with no efficient strategy = the games above the switch line", "%d/%d" % ((noeff == ABOVE).sum(), 512), "512/512")
-    check("Results", "m1 N=1000: share on stable strategies above 1/2 at", int((m1.P["P_nash"] > 0.5).sum()), 268)
-    check("Results", "m1 N=1000: competitive share above 1/2 at", int((m1.P["P_comp"] > 0.5).sum()), 315)
+    check("SI m1", "m1 N=1000: share on stable strategies above 1/2 at", int((m1.P["P_nash"] > 0.5).sum()), 268)
+    check("SI m1", "m1 N=1000: competitive share above 1/2 at", int((m1.P["P_comp"] > 0.5).sum()), 315)
     none = (m1.P["P_eff"] <= 0.5) & (m1.P["P_nash"] <= 0.5) & (m1.P["P_comp"] <= 0.5)
-    check("Results", "m1 N=1000: games at which no property holds half the population", int(none.sum()), 137)
-    check("Results", "m1 N=1000: ... of them in the Snowdrift quadrant", int((none & (QUAD == "SD")).sum()), 105)
+    check("SI m1", "m1 N=1000: games at which no property holds half the population", int(none.sum()), 137)
+    check("SI m1", "m1 N=1000: ... of them in the Snowdrift quadrant", int((none & (QUAD == "SD")).sum()), 105)
 
     print("\nResults, 'Enrichment' (Figure 4c, f)")
     n0 = m2.N[:, 0] / 65536.0
@@ -182,54 +173,44 @@ def main():
           "%d vs %d" % (m2.lead("111", enriched=True), m2.lead("111")), "261 vs 186")
     e0, e1 = m2.enr[:, ORDER.index("110")], m2.enr[:, ORDER.index("111")]
     both = m2.N[:, ORDER.index("110")] > 0
-    check("Results", "m2 N=1000: 110 more enriched than 111 per strategy, games of W / of N",
+    check("SI evol.", "m2 N=1000: 110 more enriched than 111 per strategy, games of W / of N",
           " ".join("%d/%d" % ((both & (WEDGE == w) & (e0 > e1)).sum(), (WEDGE == w).sum()) for w in "WN"), "152/179 98/121")
     check("Results", "m2 N=1000: 111 more enriched than 110 at every game of S and E with a 110",
           " ".join("%d/%d" % ((both & (WEDGE == w) & (e1 > e0)).sum(), (both & (WEDGE == w)).sum()) for w in "SE"), "124/124 71/71")
     for code, want in (("001", 154), ("111", 126), ("011", 95), ("000", 77), ("110", 60)):
-        check("Results", "m1 N=1000: %s most enriched at" % code, m1.lead(code, enriched=True), want)
+        check("SI m1", "m1 N=1000: %s most enriched at" % code, m1.lead(code, enriched=True), want)
 
     print("\nResults, 'Additional evolutionary simulations'")
     check("Results", "m2 N=100: mean efficiency in PD/W ('about 60%', one decimal)", f(m2s.E[PIECE["PD/W"]].mean(), 1), "0.6")
     check("Results", "m2 N=1000: mean efficiency in PD/W", "%.0f%%" % (100 * m2.E[PIECE["PD/W"]].mean()), "96%")
 
-    print("\nConclusion")
-    check("Conclusion", "m2 N=1000: at least 0.9 of the attainable payoff at all but", int((m2.E < 0.9).sum()), 10)
-    check("Conclusion", "m2 N=1000: 110 / 111 most abundant at", "%d / %d" % (m2.lead("110"), m2.lead("111")), "323 / 186")
-    check("Conclusion", "m2 N=1000: 111 leads wedge S / HA above / PD above / eight-only",
-          "%d %d %d %d/%d" % (m2.lead("111", WS), m2.lead("111", PIECE["HA/E"]), m2.lead("111", PIECE["PD/N"]),
-                              m2.lead("111", eight), eight.sum()), "126 27 14 19/20")
-    check("Conclusion", "m2 N=1000: 111 most enriched at", m2.lead("111", enriched=True), 261)
-    check("Conclusion", "m1 N=1000: 111 at all games of wedge S / 110 at / E < 0.9 at",
-          "%d/%d %d %d" % (m1.lead("111", WS), WS.sum(), m1.lead("110"), (m1.E < 0.9).sum()), "126/126 60 324")
-
-    print("\nMethods")
-    check("Methods", "m2 N=1000: effective number of strategies, median", "%.0f" % np.median(m2.T["neff"]), "68")
-    check("Methods", "m2 N=1000: share of the most abundant strategy, median", f(np.median(m2.T["maxpi"]), 2), "0.05")
-    check("Methods", "m1: games whose ten replicates split between basins, N=100 / N=1000",
+    print("\nSI Methods ('The Wright-Fisher process', 'Shares and enrichments', 'Realised efficiency')")
+    check("SI Methods", "m2 N=1000: effective number of strategies, median", "%.0f" % np.median(m2.T["neff"]), "68")
+    check("SI Methods", "m2 N=1000: share of the most abundant strategy, median", f(np.median(m2.T["maxpi"]), 2), "0.05")
+    check("SI Methods", "m1: games whose ten replicates split between basins, N=100 / N=1000",
           "%d / %d" % (m1s.T["split"].sum(), m1.T["split"].sum()), "59 / 11")
     for r, nm, med, n5 in ((m2s, "m2 N=100", "0.77", 30), (m2, "m2 N=1000", "0.92", 1),
                            (m1s, "m1 N=100", "1.00", 19), (m1, "m1 N=1000", "0.96", 18)):
         srt = np.sort(np.where(r.N > 0, r.S, -np.inf), 1)
-        check("Methods", "%s: share of the most abundant atom, median" % nm, f(np.median(srt[:, -1]), 2), med)
-        check("Methods", "%s: games decided by less than five points" % nm, int(((srt[:, -1] - srt[:, -2]) < 0.05).sum()), n5)
+        check("SI Methods", "%s: share of the most abundant atom, median" % nm, f(np.median(srt[:, -1]), 2), med)
+        check("SI Methods", "%s: games decided by less than five points" % nm, int(((srt[:, -1] - srt[:, -2]) < 0.05).sum()), n5)
     for r, nm, want in ((m1, "m1 N=1000", "1.4"), (m2, "m2 N=1000", "1.5"), (m1s, "m1 N=100", "2.4"), (m2s, "m2 N=100", "0.2")):
         le = np.sort(np.where(np.isnan(r.enr), -np.inf, np.log10(np.where(np.isnan(r.enr), 1.0, np.maximum(r.enr, 1e-300)))), 1)
-        check("Methods", "%s: most enriched atom's lead over the runner-up, median decades" % nm, f(np.median(le[:, -1] - le[:, -2]), 1), want)
-    check("Methods", "m1: enrichment ceiling of the friendly rivals, 16/|111| (|111| = 2)",
+        check("SI Methods", "%s: most enriched atom's lead over the runner-up, median decades" % nm, f(np.median(le[:, -1] - le[:, -2]), 1), want)
+    check("SI Methods", "m1: enrichment ceiling of the friendly rivals, 16/|111| (|111| = 2)",
           "%g" % (16.0 / m1.N[WS, ORDER.index("111")].max()), "8")
     for r, nm, mu in ((m1s, "m1 N=100", 1e-4), (m2s, "m2 N=100", 1e-4), (m1, "m1 N=1000", 1e-2), (m2, "m2 N=1000", 1e-2)):
         print("       (%s: smallest enrichment %.2g; the floor mu = %g)" % (nm, np.nanmin(r.enr), mu))
-    check("Methods", "m2 N=100: efficiency not above 0.9 at", int((m2s.E < 0.9).sum()), 91)
-    check("Methods", "m2 N=100: ... of them in PD/W", int(((m2s.E < 0.9) & PIECE["PD/W"]).sum()), 74)
-    check("Methods", "m2 N=100: median efficiency in PD/W", f(np.median(m2s.E[PIECE["PD/W"]]), 2), "0.63")
-    check("Methods", "m2 N=1000: efficiency not above 0.9 at", int((m2.E < 0.9).sum()), 10)
-    check("Methods", "m1: efficiency above 0.9 at, N=100 / N=1000", "%d / %d" % ((m1s.E > 0.9).sum(), (m1.E > 0.9).sum()), "181 / 188")
-    check("Methods", "m1: median efficiency in PD/W, N=100 / N=1000",
+    check("SI Methods", "m2 N=100: efficiency not above 0.9 at", int((m2s.E < 0.9).sum()), 91)
+    check("SI Methods", "m2 N=100: ... of them in PD/W", int(((m2s.E < 0.9) & PIECE["PD/W"]).sum()), 74)
+    check("SI Methods", "m2 N=100: median efficiency in PD/W", f(np.median(m2s.E[PIECE["PD/W"]]), 2), "0.63")
+    check("SI Methods", "m2 N=1000: efficiency not above 0.9 at", int((m2.E < 0.9).sum()), 10)
+    check("SI Methods", "m1: efficiency above 0.9 at, N=100 / N=1000", "%d / %d" % ((m1s.E > 0.9).sum(), (m1.E > 0.9).sum()), "181 / 188")
+    check("SI Methods", "m1: median efficiency in PD/W, N=100 / N=1000",
           "%s / %s" % (f(np.median(m1s.E[PIECE["PD/W"]]), 2), f(np.median(m1.E[PIECE["PD/W"]]), 2)), "0.08 / 0.41")
-    check("Methods", "m1: mean payoff negative at, N=100 / N=1000", "%d / %d" % ((m1s.E < 0).sum(), (m1.E < 0).sum()), "57 / 77")
+    check("SI Methods", "m1: mean payoff negative at, N=100 / N=1000", "%d / %d" % ((m1s.E < 0).sum(), (m1.E < 0).sum()), "57 / 77")
     neg = np.unique(QUAD[(m1.E < 0) | (m1s.E < 0)]).tolist()
-    check("Methods", "m1: the quadrants of the negative games", neg, ["PD", "SH"])
+    check("SI Methods", "m1: the quadrants of the negative games", neg, ["PD", "SH"])
 
     print("\nSI evol., 'The maps by region'")
     check("SI evol.", "m2 N=1000: 111 leads wedge S, PD above, HA above", "%d %d %d" % (m2.lead("111", WS), m2.lead("111", PIECE["PD/N"]),
@@ -364,7 +345,7 @@ def main():
     check("SI Fig. 5", "m1 N=100: no property holds half, games / of them SD", "%d / %d" % (none.sum(), (none & (QUAD == "SD")).sum()), "109 / 105")
     nonash = sum(m1.N[:, i] for i in atoms.members(atoms.PROPS[1][2])) == 0
     outside = (QUAD == "SD") & ((U > 1) | (V > 1))
-    check("Fig. 5", "m1: no stable strategy exactly at the Snowdrift games outside the unit square", "%s" % (nonash == outside).all(), "True")
+    check("SI notes", "m1: no stable strategy exactly at the Snowdrift games outside the unit square (Fig. 5)", "%s" % (nonash == outside).all(), "True")
 
     nd = RESULTS.count(False)
     print("\n%d numbers checked: %d agree with the text, %d differ" % (len(RESULTS), RESULTS.count(True), nd))

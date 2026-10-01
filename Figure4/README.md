@@ -53,4 +53,5 @@ original preview. The software was Python 3.10.9, numpy 1.23.5 and matplotlib 3.
 
 The counts in the receipt are those of the text. At memory two, 110 is the most abundant atom at 323 games and 111
 at 186, 111 is the most enriched atom at 261 and 110 at 249, and the efficiency is below 0.9 at 10 games. At memory
-one the efficiency is below 0.9 at 324 games and negative at 77. See `../data/runs/README.md`.
+one the efficiency is below 0.9 at 324 games, that is, it exceeds 0.9 at only 188 (SI Methods, "Realised
+efficiency"), and it is negative at 77 (the same paragraph). See `../data/runs/README.md`.

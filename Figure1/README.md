@@ -57,5 +57,6 @@ numpy 1.23.5, matplotlib 3.7.0, scipy 1.10.0 and Pillow 9.4.0.
   mean |diff| 0.
 - The preview `Fig1.png` it writes is byte-identical to the author's.
 
-The printed case table matches the Methods and SI §8 ("Ten Euler diagrams"): ten cases at memory two (1–7, 9, 11, 13), twelve at memory one,
-and 7, 11 and 13 shared.
+The printed case table matches the SI Methods ("Nash equilibria, partners and atoms"), the SI notes to Figure 1 (7, 11
+and 13 shared) and SI §8 ("Ten Euler diagrams"): ten cases at memory two (1–7, 9, 11, 13), twelve at memory one, and
+7, 11 and 13 shared.

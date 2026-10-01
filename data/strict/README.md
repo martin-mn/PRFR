@@ -1,7 +1,7 @@
 # data/strict — strict Nash equilibria at ε = 10⁻⁴ and the population on them
 
-This folder holds the data of SI Figures 6 and 7 and of the Methods paragraph "Strict equilibria". For each of the 512
-sampled games (`../games`) and both strategy spaces it gives:
+This folder holds the data of SI Figures 6 and 7 and of the SI Methods paragraph "Strict equilibria". For each of the
+512 sampled games (`../games`) and both strategy spaces it gives:
 
 - which strategies are strict Nash equilibria at the error rate of the runs, ε = 10⁻⁴;
 - which of them are efficient in the limit ε → 0;

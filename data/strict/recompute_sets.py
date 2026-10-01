@@ -24,7 +24,8 @@ it than it earns against itself, pi(t, s) < pi(s, s). At eps > 0 this holds if a
 deviations (s with the answer at one state k reversed) earns strictly less. The reason: every chain is irreducible at
 eps > 0, so the deviator faces a unichain average-reward decision problem on the sixteen states, and the identity
 g(t) - g(s) = sum_k nu_t(k) phi_s(k, t(k)) holds with nu_t > 0 everywhere (the proposition of the companion paper,
-github.com/martin-mn/MapBinM2, cited in the Methods; strictness follows from it because nu_t > 0 at every state).
+bioRxiv 2026.09.05.749606, cited in the paper; code at github.com/martin-mn/MapBinM2; strictness follows from it
+because nu_t > 0 at every state).
 The gain of the one-flip at state k is
 
     pi(s^k, s) - pi(s, s) = nu(k) * (p' - p) * sum_o dP_o * h(4 o + k // 4)

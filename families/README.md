@@ -1,4 +1,4 @@
-# families — the family descriptions of the friendly rivals (SI §7, Methods "Family descriptions")
+# families — the family descriptions of the friendly rivals (SI §7, SI Methods "Family descriptions")
 
 This folder describes each set of friendly rivals as a union of wildcard patterns. It covers the four open wedges W,
 N, E and S, the defensible reading of S, and the two overlaps W∩S and E∩N.

@@ -38,9 +38,9 @@ median share of the most abundant atom and the number of games decided by less t
 `../SIFigure3/sifig3.py` unchanged, apart from where it takes its constants from and the output path.
 
 Some games show as speckle: their ten replicates fixed in different basins, so the plotted share is the fraction of
-the replicates in each basin (Methods) and falls between the values of the neighbouring games. The deposited tables
+the replicates in each basin (SI Methods) and falls between the values of the neighbouring games. The deposited tables
 flag these games in the columns `split` and `split_sd` of `m1_N100.csv` and `m1_N1000.csv`: 59 games in the small run
-and 11 in the large one, as in the Methods. The flags come from the per-replicate abundances, which are not deposited.
+and 11 in the large one, as in the SI Methods. The flags come from the per-replicate abundances, which are not deposited.
 
 ## Verification (2026-09-24)
 
@@ -54,4 +54,4 @@ The counts of the most abundant atom are those of the SI section "Memory one, fo
 - N = 1000: 000 at 154, 111 at 126, 001 at 90, 011 at 82, 110 at 60.
 
 The median share of the most abundant atom is 1.00 (19 games decided by less than 0.05) and 0.96 (18 games), as in
-the Methods.
+the SI Methods.

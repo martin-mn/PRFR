@@ -23,10 +23,10 @@ repository:
 
 | place in the paper | the item | folder |
 |---|---|---|
-| Methods, "Nash equilibria, partners and atoms"; SI §6, "What is computed here" | the exact arrangement, the faces with their sets of stable strategies | `data/arrangement/` |
-| Methods, "Family descriptions"; SI §7, the wedge S | "one of the minimal covers is included in the computed output" | `families/` (`covers.csv`) |
+| SI Methods, "Nash equilibria, partners and atoms"; SI §6, "What is computed here" | the exact arrangement, the faces with their sets of stable strategies | `data/arrangement/` |
+| SI Methods, "Family descriptions"; SI §7, the wedge S | "one of the minimal covers is included in the computed output" | `families/` (`covers.csv`) |
 | SI §6, "How the census was computed" | "Both programs and their README are part of the deposited code" | `census/` |
-| Methods, "The Wright–Fisher process …" | the seed base "listed with the code" of every run, and the seed bases of the further runs | `simulator/SEEDS.csv`, `simulator/seeds_by_game.csv` |
+| SI Methods, "The Wright–Fisher process …" | the seed base "listed with the code" of every run, and the seed bases of the further runs | `simulator/SEEDS.csv`, `simulator/seeds_by_game.csv` |
 | Code availability | "the evolutionary simulator with the seeds of every run" | `simulator/` |
 
 ## The files

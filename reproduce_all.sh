@@ -241,7 +241,7 @@ step tables SITable7  SITable7  "SI Table 7"  -  "$P sitable7.py"  SITable7.csv 
 step tables SITable8  SITable8  "SI Table 8, with the check against all 65536 memory-two co-players"  -  "$P sitable8.py --m2"  sitable8.csv m1_pairs.csv =log:output.txt
 
 # -------------------------------------------------------------------------------------------------- checks
-step checks data/arrangement arrangement_check    "the exact arrangement: the counts of the Methods and SI sections 6 and 8"  -  "$P check.py"
+step checks data/arrangement arrangement_check    "the exact arrangement: the counts of the SI Methods and SI sections 6 and 8"  -  "$P check.py"
 step checks data/arrangement arrangement_m1atoms  "the memory-one arrangement rebuilt from nothing"  -  "$P m1atoms.py m2"
 step checks data/runs        runs_check_numbers   "the four main runs: the numbers of the text"   -  "$P check_numbers.py"
 step checks data/strict      strict_check         "strict equilibria: the numbers of the text"    -  "$P check_strict.py"

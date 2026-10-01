@@ -6,8 +6,10 @@ Supplementary Information.
 Martin A. Nowak, Department of Mathematics and Department of Organismic and
 Evolutionary Biology, Harvard University.
 
-Archived on Zenodo: release 1.0.0, [doi:10.5281/zenodo.22964493](https://doi.org/10.5281/zenodo.22964493)
-(all versions: [doi:10.5281/zenodo.22964492](https://doi.org/10.5281/zenodo.22964492)). MIT licence.
+Archived on Zenodo: release 1.1.0, this version (its DOI is listed on the record of all versions); all versions,
+[doi:10.5281/zenodo.22964492](https://doi.org/10.5281/zenodo.22964492); the earlier release 1.0.0,
+[doi:10.5281/zenodo.22964493](https://doi.org/10.5281/zenodo.22964493). MIT licence. `CHANGELOG.md` lists what
+changed between the releases.
 
 ## What is computed
 
@@ -76,8 +78,8 @@ another folder is named. The times are for one core of an Apple M2 Pro.
 | display item | folder | command | input | time |
 |---|---|---|---|---:|
 | **Figure 1**: the three properties, their atoms, and which atoms are empty at each game | `Figure1` | `python3 fig1.py` | `arrangement/` (memory one and memory two) | 9 s |
-| **Figure 2**: the number of strategies in each atom at every game | `Figure2` | `python3 fig2.py` | `arrangement/` | 16 s |
-| **Figure 3**: the number of strategies with each property at every game | `Figure3` | `python3 fig3.py` | `arrangement/` | 9 s |
+| **Figure 2**: the number of strategies in each atom at every game | `Figure2` | `python3 fig2.py` (`--wide`: the sheet of release 1.0.0) | `arrangement/` | 16 s |
+| **Figure 3**: the number of strategies with each property at every game | `Figure3` | `python3 fig3.py` (`--wide`: the sheet of release 1.0.0) | `arrangement/` | 9 s |
 | **Figure 4**: what evolution selects, in a large population | `Figure4` | `python3 fig4.py` | `runs/m1_N1000.csv`, `m2_N1000.csv` | 3 s |
 | **Figure 5**: the share of the population with each property | `Figure5` | `python3 fig5.py` | `runs/m1_N1000.csv`, `m2_N1000.csv` | 2 s |
 | **SI Figure 1**: feasible payoffs and the two half-planes behind the theorem | `SIFigure1` | `sh build.sh` (pdflatex) | none (TikZ source) | 1 s |
@@ -101,15 +103,28 @@ another folder is named. The times are for one core of an Apple M2 Pro.
 | **SI Table 7**: robustness of the memory-two maps | `SITable7` | `python3 sitable7.py` | `robustness/` (all fifteen runs), `games/` | 1 s |
 | **SI Table 8**: the sixteen binary memory-one strategies | `SITable8` | `python3 sitable8.py` (`--m2`: against all 65536 memory-two co-players) | none (exact, from the definitions) | < 1 s (26 s) |
 
-Every figure script was run from a fresh copy of the repository on 2026-09-24,
-with the versions in `requirements.txt`, and reproduced the published figure:
+Every figure script was run from a fresh copy of the repository, with the
+versions in `requirements.txt`, and reproduced the figure of the paper:
 
-- **Figures 1–5 and SI Figures 2–12.** Rasterised next to the published PDF,
+- **Figures 1–5 and SI Figures 2–12 (2026-09-24; Figures 2 and 3 as drawn by
+  release 1.0.0, now `--wide`).** Rasterised next to the published PDF,
   each is pixel-identical at 80 and 150 dpi. Each PDF is byte-identical to the
   published one apart from the creation date that matplotlib writes into it.
   For Figures 2 and 3 the PDF is 12.1 and 6.9 MB, so a 150-dpi PNG preview is
   deposited instead, and the script writes the PDF. The scripts of the other
   figures also write a PNG preview, which is not deposited.
+- **Figures 2 and 3, set for the page (2026-09-30).** `fig2.py` and `fig3.py`
+  now set the type of their sheets for a page 6.89 in (17.5 cm) wide. At that
+  width the type set in a font is at least 6 pt, the guide labels 5.5 pt and
+  the rim names 5.0 pt; in release 1.0.0 the smallest was 2.4 pt. The panels,
+  data and the band boundaries of every scale are unchanged; five ramps label
+  fewer intermediate values, and the colour bars are as tall as the disk (see
+  Figure2/README.md). With `--wide` the scripts draw the sheets of release
+  1.0.0, byte-identical, apart from the creation date, to the PDFs of the
+  manuscript that release accompanied. Without `--wide` they write PDFs that
+  are byte-identical, apart from the creation date, to Figures 2 and 3 of the
+  revised manuscript. The deposited previews `Fig2.png` and `Fig3.png` are
+  those of the page version.
 - **SI Figure 1.** Rebuilt with pdflatex, it is pixel-identical to the published
   PDF, and the two files differ only in their dates and their `/ID`.
 
@@ -153,7 +168,7 @@ and Baek's defensibility by Floyd–Warshall. The exact run was Cannon job
 ```
 cd census
 make && make selftest        # builds pairs and pairsq, compares 1e5 random pairs exact against double (seconds)
-python3 check.py             # every census count of SI §6 and the Methods, from data/census, and the 672 stable
+python3 check.py             # every census count of SI §6 and the SI Methods, from data/census, and the 672 stable
                              # strategies at (-2, 2) from the stability regions of data/arrangement (2 s); ends in ALL AGREE
 bash cannon/task.sh local 512 4    # the whole census, both programs (about 1 hour on 4 cores)
 python3 compare.py out 512 && python3 reduce.py out    # compares the two runs, and rewrites data/census
@@ -217,10 +232,11 @@ cd simulator && python3 mkseeds.py --check     # SEEDS.csv and seeds_by_game.csv
 ```
 
 A full run is 512 tasks of about an hour each: a cluster job.
-`simulator/README.md` matches every statement of the Methods about the process
-to the code. It also explains how to stage, compile, submit, verify and pack a
-kit. The kits' scripts carry the author's cluster settings, which
-`simulator/kits/README.md` lists.
+`simulator/README.md` matches every statement of the SI Methods about the
+process ("The Wright–Fisher process with pairwise comparison") to the code. It
+also explains how to stage, compile, submit, verify and pack a kit. The kits'
+scripts carry the author's cluster settings, which `simulator/kits/README.md`
+lists.
 
 The same runs appear under different names in different folders:
 
@@ -273,10 +289,10 @@ them with the census. `data/robustness/` is checked by the table scripts of SI
 Tables 6 and 7. The other folders carry their own checkers:
 
 ```
-cd data/arrangement && python3 check.py        # the Methods counts 23861, 9431, 299-22069, 8-7639; SI §6 and §8 (8 s)
+cd data/arrangement && python3 check.py        # the SI Methods counts 23861, 9431, 299-22069, 8-7639; SI §6 and §8 (8 s)
 cd data/arrangement && python3 m1atoms.py m2   # rebuilds the memory-one arrangement exactly and compares (7 s)
-cd data/runs        && python3 check_numbers.py   # 146 numbers of the text from the four main runs (< 1 s)
-cd data/strict      && python3 check_strict.py    # the strict-equilibrium numbers of the Methods and SI (1 s)
+cd data/runs        && python3 check_numbers.py   # 134 numbers of the text from the four main runs (< 1 s)
+cd data/strict      && python3 check_strict.py    # the strict-equilibrium numbers of the SI Methods and SI §9, §10 (1 s)
 cd data/strict      && python3 recompute_sets.py  # the strict sets recomputed from the games alone (17 s)
 ```
 
@@ -459,6 +475,11 @@ second property keep the name `nash` (for example `nash` in
 `nash_dim` in `data/arrangement/`): they hold stability, a symmetric Nash
 equilibrium against a single deviant. `common/README.md` has the rest.
 
+In the headers of the data files, in the notes and their checks, and in
+`provenance/`, all as written for release 1.0.0, "the Methods" is the Methods
+section of the paper, which in the revised manuscript opens the Supplementary
+Information (the main text calls it "SI Methods" and keeps a short summary).
+
 ## License
 
 Code and data are released under the MIT License (`LICENSE`).
@@ -482,18 +503,20 @@ Please cite the paper, and this repository if you use its code or data:
 > reciprocity (2026).
 
 > Nowak, M. A. Code and data for: Partners, rivals, and friendly rivals in the
-> evolution of direct reciprocity. Version 1.0.0 (2026).
-> https://github.com/martin-mn/PRFR
+> evolution of direct reciprocity. Version 1.1.0 (2026).
+> doi:10.5281/zenodo.22964492 (all versions). https://github.com/martin-mn/PRFR
 
-**To be added on publication:** the journal and DOI of the paper, and the DOI
-of the archived release of this repository.
+**To be added:** the DOI of release 1.1.0, once Zenodo has minted it, and on
+publication the journal and DOI of the paper. The earlier release 1.0.0 is
+doi:10.5281/zenodo.22964493.
 
 ```bibtex
 @misc{Nowak2026PRFRcode,
   author    = {Nowak, Martin A.},
   title     = {Code and data for: Partners, rivals, and friendly rivals in the evolution of direct reciprocity},
   year      = {2026},
-  version   = {1.0.0},
+  version   = {1.1.0},
+  doi       = {10.5281/zenodo.22964492},
   url       = {https://github.com/martin-mn/PRFR}
 }
 ```

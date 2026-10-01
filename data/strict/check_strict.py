@@ -2,7 +2,7 @@
 """
 check_strict.py -- reads the tables of data/strict/ and checks that they agree with each other and with data/games.
 Then it recomputes, from the tables alone, every number the paper states about the strict Nash equilibria at
-eps = 1e-4 (Methods, "Strict equilibria"; SI, "Strict equilibria at memory one" and "Why partners and not strict
+eps = 1e-4 (SI Methods, "Strict equilibria"; SI, "Strict equilibria at memory one" and "Why partners and not strict
 equilibria"; the legends of SI Figures 6 and 7) and prints it.
 
     python3 check_strict.py          (from any directory; about two seconds; needs numpy)
@@ -87,7 +87,7 @@ def main():
 
     # ------------------------------------------------------------------------------------------ memory two
     n2 = T2["n_strict"]
-    print("\nmemory two, strict Nash equilibria among the 65536 at eps = 1e-4 (Methods, 'Strict equilibria'; SI Figure 6d-f)")
+    print("\nmemory two, strict Nash equilibria among the 65536 at eps = 1e-4 (SI Methods, 'Strict equilibria'; SI Figure 6d-f)")
     say("weak and strict equilibria coincide: games where they differ", int((T2["n_weak"] != n2).sum()), 0)
     say("strict equilibria per game, largest", int(n2.max()), 645)
     say("strict equilibria per game, median", float(np.median(n2)), 15.0)
@@ -115,7 +115,7 @@ def main():
     for w, N, med in (("F2", 100, 0.001126), ("F1", 1000, 0.003356)):
         say("  ... N = %d: median over the 512 games" % N, float(np.median(T2["share_" + w])), med)
 
-    print("\nmemory two, the double-precision brute force against the exact one-flip test (Methods; m2_float64_check.csv)")
+    print("\nmemory two, the double-precision brute force against the exact one-flip test (SI Methods; m2_float64_check.csv)")
     say("pairs at which they disagree", len(C2["s"]), 160)
     say("  in how many games", len(set(C2["ipt"].tolist())), 102)
     say("  exact strict and float64 not / float64 strict and exact not", (int(off.sum()), 0), (160, 0))
@@ -156,7 +156,7 @@ def main():
 
     # ------------------------------------------------------------------------------------------ memory one
     n1 = T1["n_strict"]
-    print("\nmemory one, strict Nash equilibria among the 16 at eps = 1e-4 (Methods; SI, 'Strict equilibria at memory one'; "
+    print("\nmemory one, strict Nash equilibria among the 16 at eps = 1e-4 (SI Methods; SI, 'Strict equilibria at memory one'; "
           "SI Figure 6a-c)")
     say("weak and strict equilibria coincide: games where they differ", int((T1["n_weak"] != n1).sum()), 0)
     say("strict equilibria per game, fewest and most", (int(n1.min()), int(n1.max())), (0, 7))

@@ -2,7 +2,8 @@
 The frame of every disk panel on the sunflower cells (Figures 4 and 5, SI Figures 2-4 and 6-12) and of the count
 maps (Figures 2 and 3): the axes, the special lines, the guide circles at |u|, |v| = 1, 2, 4, 10 with their ticks and
 labels, u and v, the panel letter, the head, the names of the four games on the rim -- atomshares.py's furniture()
-and layout constants, moved here unchanged.
+and layout constants, moved here unchanged.  furniture(ty=...) takes another type (font sizes and text positions);
+without it every figure is drawn as published.  common.counts.page_type() is the type of Figures 2 and 3.
 
 IMPORTING THIS MODULE selects the Agg backend and sets the rcParams the original atomshares.py / atomcounts.py set on
 import (RC below: TrueType fonts in the PDF, font.size 15, axes.linewidth 1.2), so a script that draws with it
@@ -14,7 +15,7 @@ import matplotlib.patheffects as pe                                 # noqa: E402
 import numpy as np                                                  # noqa: E402
 from matplotlib.font_manager import FontProperties                  # noqa: E402
 from matplotlib.patches import Rectangle                            # noqa: E402
-from matplotlib.textpath import TextPath                            # noqa: E402
+from matplotlib.textpath import TextPath, TextToPath                # noqa: E402
 
 from . import disk as _disk                                         # noqa: E402
 from .atoms import ORDER                                            # noqa: E402
@@ -55,12 +56,31 @@ X0 = -0.5 * (6 * PITCH + SW + 0.02 + LW)         # the row of seven centred unde
 YL = -LIM - 0.04 - 0.5 * SW - 0.01               # its centre line (data units); the colour bar sits level with it
 
 
-def furniture(ax, letter, title, halo=True):
+# the type of furniture(): font sizes in points of the drawing, positions in data units.  TYPE is that of every figure
+# as published; furniture(ty=d) replaces the entries named in d (common.counts.page_type()["furniture"], Figures 2, 3).
+#   guide, guide_off      the labels of the guide circles, and their distance from the axis they label
+#   guide_above           the labels of the u axis set above it rather than below (values of u, e.g. (-1, -4))
+#   uv, v_x, v_ha         the axis names u and v; v is set at x = v_x with alignment v_ha
+#   letter, head          the panel letter and the head
+#   head_x                None: the head centred over the disk, letter and head on one bottom line (as published);
+#                         a number: the head left-aligned at x = head_x on the letter's baseline head_y, one line per
+#                         line of the title, head_lead apart, lines after the first indented to the text that follows
+#                         the first three spaces of the first line (the code of the atom)
+#   names, names_gap, names_gap_low, names_trk   the rim names: size, gap to the rim on the upper / lower half, tracking
+TYPE = dict(guide=FS * 0.7, guide_off=0.048, guide_above=(), uv=FS * 1.4, v_x=0.0, v_ha="center", letter=FS * 1.7,
+            head=FS * 1.05, head_x=None, head_y=LIM + 0.055, head_lead=0.0, names=NM_FS, names_gap=_disk.NM_GAP,
+            names_gap_low=_disk.NM_GAP, names_trk=_disk.NM_TRK)
+
+
+def furniture(ax, letter, title, halo=True, ty=None):
     """everything on a disk panel but the cells: axes, the special lines (common.disk.CONICS; halo=True as the
     sunflower maps, halo=False as the count maps of Figures 2 and 3), the guide circles with ticks and labels,
     u and v, the panel letter (top left), the head `title` (top centre; "" for none), the four game names on the rim;
     sets the limits x in [-LIM, LIM], y in [-(LIM + EXTB), LIM + EXTT], equal aspect, axis off.
+    ty: None, the type as published, or a dict of the entries of TYPE to change.
     Draw the cells first (zorder 1); this draws at zorder 5-12."""
+    assert ty is None or set(ty) <= set(TYPE), "not an entry of TYPE: %s" % sorted(set(ty) - set(TYPE))
+    t = TYPE if ty is None else dict(TYPE, **ty)
     ax.plot([-1, 1], [0, 0], color=GUIDE_C, lw=GUIDE_LW, zorder=5, alpha=GUIDE_A)
     ax.plot([0, 0], [-1, 1], color=GUIDE_C, lw=GUIDE_LW, zorder=5, alpha=GUIDE_A)
     draw_conics(ax, halo=halo)
@@ -71,14 +91,32 @@ def furniture(ax, letter, title, halo=True):
             ax.plot([sg * rr, sg * rr], [-0.016, 0.016], color="0.2", lw=1.4, zorder=8, path_effects=PEL)
             ax.plot([-0.016, 0.016], [sg * rr, sg * rr], color="0.2", lw=1.4, zorder=8, path_effects=PEL)
             lab = ("%g" % r) if sg > 0 else "$-$%g" % r
-            ax.text(sg * rr, -0.048, lab, fontsize=FS * 0.7, color="0.2", ha="center", va="top", zorder=9, path_effects=PEL)
-            ax.text(-0.048, sg * rr, lab, fontsize=FS * 0.7, color="0.2", ha="right", va="center", zorder=9, path_effects=PEL)
-    ax.text(1.055, 0.0, "$u$", fontsize=FS * 1.4, ha="left", va="center")
-    ax.text(0.0, 1.055, "$v$", fontsize=FS * 1.4, ha="center", va="bottom")
-    ax.text(-LIM + 0.01, LIM + 0.055, letter, fontsize=FS * 1.7, fontweight="bold", ha="left", va="bottom")
-    ax.text(0.0, LIM + 0.055, title, fontsize=FS * 1.05, color="0.12", ha="center", va="bottom")
+            if sg * r in t["guide_above"]:
+                ax.text(sg * rr, t["guide_off"], lab, fontsize=t["guide"], color="0.2", ha="center", va="bottom", zorder=9,
+                        path_effects=PEL)
+            else:
+                ax.text(sg * rr, -t["guide_off"], lab, fontsize=t["guide"], color="0.2", ha="center", va="top", zorder=9,
+                        path_effects=PEL)
+            ax.text(-t["guide_off"], sg * rr, lab, fontsize=t["guide"], color="0.2", ha="right", va="center", zorder=9,
+                    path_effects=PEL)
+    ax.text(1.055, 0.0, "$u$", fontsize=t["uv"], ha="left", va="center")
+    ax.text(t["v_x"], 1.055, "$v$", fontsize=t["uv"], ha=t["v_ha"], va="bottom")
+    if t["head_x"] is None:                                    # as published
+        ax.text(-LIM + 0.01, t["head_y"], letter, fontsize=t["letter"], fontweight="bold", ha="left", va="bottom")
+        ax.text(0.0, t["head_y"], title, fontsize=t["head"], color="0.12", ha="center", va="bottom")
+    else:                                                      # the letter, then the head left-aligned on its baseline
+        ax.text(-LIM + 0.01, t["head_y"], letter, fontsize=t["letter"], fontweight="bold", ha="left", va="baseline")
+        lines = title.split("\n")
+        ind = 0.0
+        if len(lines) > 1 and "   " in lines[0]:               # the hanging indent: the width of "code   " in data units
+            ind = TextToPath().get_text_width_height_descent(lines[0].split("   ")[0] + "   ",
+                                                             FontProperties(size=t["head"]), ismath=True)[0] * DPU
+        for i, line in enumerate(lines):
+            ax.text(t["head_x"] + (ind if i else 0.0), t["head_y"] - i * t["head_lead"], line, fontsize=t["head"],
+                    color="0.12", ha="left", va="baseline")
     for a0, nm in NAMES:
-        _, _, ro = arc_text(ax, nm, a0, 1.0, NM_FS, DPU, _disk.NM_GAP, _disk.NM_TRK)
+        gap = t["names_gap"] if a0 < 180.0 else t["names_gap_low"]
+        _, _, ro = arc_text(ax, nm, a0, 1.0, t["names"], DPU, gap, t["names_trk"])
         assert ro < LIM, "%s reaches r = %.4f" % (nm, ro)
     ax.set_xlim(-LIM, LIM)
     ax.set_ylim(-(LIM + EXTB), LIM + EXTT)
