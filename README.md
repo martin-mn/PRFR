@@ -6,7 +6,7 @@ Supplementary Information.
 Martin A. Nowak, Department of Mathematics and Department of Organismic and
 Evolutionary Biology, Harvard University.
 
-Archived on Zenodo: release 1.1.0, this version (its DOI is listed on the record of all versions); all versions,
+Archived on Zenodo: release 1.1.0, [doi:10.5281/zenodo.23079603](https://doi.org/10.5281/zenodo.23079603); all versions,
 [doi:10.5281/zenodo.22964492](https://doi.org/10.5281/zenodo.22964492); the earlier release 1.0.0,
 [doi:10.5281/zenodo.22964493](https://doi.org/10.5281/zenodo.22964493). MIT licence. `CHANGELOG.md` lists what
 changed between the releases.
@@ -504,10 +504,10 @@ Please cite the paper, and this repository if you use its code or data:
 
 > Nowak, M. A. Code and data for: Partners, rivals, and friendly rivals in the
 > evolution of direct reciprocity. Version 1.1.0 (2026).
-> doi:10.5281/zenodo.22964492 (all versions). https://github.com/martin-mn/PRFR
+> doi:10.5281/zenodo.23079603. https://github.com/martin-mn/PRFR
 
-**To be added:** the DOI of release 1.1.0, once Zenodo has minted it, and on
-publication the journal and DOI of the paper. The earlier release 1.0.0 is
+**To be added:** on publication, the journal and DOI of the paper. All versions:
+doi:10.5281/zenodo.22964492; the earlier release 1.0.0 is
 doi:10.5281/zenodo.22964493.
 
 ```bibtex
@@ -516,7 +516,7 @@ doi:10.5281/zenodo.22964493.
   title     = {Code and data for: Partners, rivals, and friendly rivals in the evolution of direct reciprocity},
   year      = {2026},
   version   = {1.1.0},
-  doi       = {10.5281/zenodo.22964492},
+  doi       = {10.5281/zenodo.23079603},
   url       = {https://github.com/martin-mn/PRFR}
 }
 ```
